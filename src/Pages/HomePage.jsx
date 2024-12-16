@@ -196,7 +196,7 @@ export default function HomePage() {
           Watch this inspiring video about making learning accessible for everyone.
         </p>
       </div>
-    </div><br/><br/><br/>
+    </div><br/><br/><br/><br/><br/><br/>
 
     
     </div> 
