@@ -15,18 +15,18 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-16 items-center">
+        <nav className="hidden md:flex space-x-16 items-center text-base	">
           <Link to="/" className="text-white hover:text-purple-400 transition duration-200">Home</Link>
           <Link to="/about" className="text-white hover:text-purple-400 transition duration-200">About Us</Link>
 
           {/* Upgrade Dropdown */}
           <div className="relative">
             <button
-              className="text-purple-400 hover:text-purple-300 transition duration-200 flex items-center space-x-1"
-              onClick={() => setIsUpgradeDropdownOpen(!isUpgradeDropdownOpen)}>
+            className="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text hover:text-purple-300 transition duration-200 flex items-center space-x-1"
+            onClick={() => setIsUpgradeDropdownOpen(!isUpgradeDropdownOpen)}>
               <span>Upgrade</span>
               <svg
-                className="w-5 h-5"
+                className="w-5 h-5 text-purple-500"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
@@ -41,7 +41,7 @@ const Navbar = () => {
             </button>
 
             {isUpgradeDropdownOpen && (
-              <div className="absolute mt-2 w-28 bg-[#0E1526] rounded-md shadow-lg z-50">
+              <div className="absolute mt-2 w-28 bg-[#0E1526] rounded-md shadow-lg z-50 ">
                 <ul className="py-2">
                   <li>
                     <Link
