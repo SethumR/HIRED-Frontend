@@ -1,14 +1,24 @@
-import { useState } from 'react'
-import './App.css'
+import React from 'react';
+import './index.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './Components/Navbar';
+import Homepage from './Pages/HomePage';
+import Footer from './Components/Footer';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
+    <Router>
+      <div className="bg-[#0a0b14] min-h-screen">
+        <Navbar />
 
-    </>
-  )
-}
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+        </Routes>
 
-export default App
+        <Footer />
+      </div>
+    </Router>
+  );
+};
+
+export default App;
