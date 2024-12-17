@@ -109,7 +109,7 @@ export default function ContatPage() {
             className="space-y-8">
             <motion.h1 
                 variants={itemVariants}
-                className="text-5xl font-bold tracking-tight">
+                className="text-5xl font-bold tracking-tight bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text ">
                 Get in touch
             </motion.h1>
             

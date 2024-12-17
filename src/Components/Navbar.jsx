@@ -16,8 +16,8 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-16 items-center text-base	">
-          <Link to="/" className="text-white hover:text-purple-400 transition duration-200">Home</Link>
-          <Link to="/about" className="text-white hover:text-purple-400 transition duration-200">About Us</Link>
+          <Link to="" className="text-white hover:text-purple-400 transition duration-200">Home</Link>
+          <Link to="/aboutus" className="text-white hover:text-purple-400 transition duration-200">About Us</Link>
 
           {/* Upgrade Dropdown */}
           <div className="relative">
@@ -66,7 +66,7 @@ const Navbar = () => {
             )}
           </div>
 
-          <Link to="/contact" className="text-white hover:text-purple-400 transition duration-200">Contact Us</Link>
+          <Link to="" className="text-white hover:text-purple-400 transition duration-200">Contact Us</Link>
         </nav>
 
         {/* Mobile Menu Toggle */}
@@ -86,7 +86,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <nav className="md:hidden bg-[#0a0b14] shadow-md">
+        <nav className="md:hidden bg-[#0E1526] shadow-md">
           <ul className="flex flex-col items-center py-6 space-y-6">
             <li>
               <Link

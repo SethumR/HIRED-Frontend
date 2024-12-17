@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { FaBrain, FaPhoneAlt, FaFileAlt, FaMapMarkerAlt, FaBuilding, FaVolumeUp } from 'react-icons/fa';
+import ContatPage from './ContactPage';
 
 // Animated Stat Component
 function AnimatedStat({ endValue, label, suffix = '+' }) {
@@ -78,6 +79,8 @@ export default function HomePage() {
       description: "Access curated resources linked to feedback to refine skills, bridge knowledge gaps, enhance learning, accelerate career growth, and build confidence for future success."
     }
   ];
+
+  
 
   return (
     <div className="min-h-screen bg-[#0E1526] text-white">
@@ -198,7 +201,12 @@ export default function HomePage() {
       </div>
     </div><br/><br/><br/><br/><br/><br/>
 
-    
+
+    <div className="flex justify-center items-center">
+      <img src="Prototype.png" alt="Description of image" className="w-full max-w-2xl" />
+    </div>  <br/><br/><br/><br/><br/><br/>
+    <ContatPage/>
     </div> 
+    
   ); 
 }
