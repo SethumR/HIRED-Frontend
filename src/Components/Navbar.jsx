@@ -18,13 +18,14 @@ const Navbar = () => {
         <nav className="hidden md:flex space-x-16 items-center text-base	">
           <Link to="" className="text-white hover:text-purple-400 transition duration-200">Home</Link>
           <Link to="/aboutus" className="text-white hover:text-purple-400 transition duration-200">About Us</Link>
+          <Link to="/upgrade" className="text-white hover:text-purple-400 transition duration-200">Upgrade</Link>
 
           {/* Upgrade Dropdown */}
           <div className="relative">
             <button
             className="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text hover:text-purple-300 transition duration-200 flex items-center space-x-1"
             onClick={() => setIsUpgradeDropdownOpen(!isUpgradeDropdownOpen)}>
-              <span>Upgrade</span>
+              <span>Sign Up</span>
               <svg
                 className="w-5 h-5 text-purple-500"
                 fill="none"
@@ -66,7 +67,7 @@ const Navbar = () => {
             )}
           </div>
 
-          <Link to="" className="text-white hover:text-purple-400 transition duration-200">Contact Us</Link>
+          <Link to="/ContactUs" className="text-white hover:text-purple-400 transition duration-200">Contact Us</Link>
         </nav>
 
         {/* Mobile Menu Toggle */}
