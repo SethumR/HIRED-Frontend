@@ -6,6 +6,8 @@ import Homepage from './Pages/HomePage';
 import Footer from './Components/Footer';
 import ContactPage from './Pages/ContactPage'; 
 import AboutUs from './Pages/AboutUs'; // Import the AboutUs page
+import 'aos/dist/aos.css';
+
 
 const App = () => {
   return (
@@ -15,8 +17,8 @@ const App = () => {
 
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/aboutus" element={<AboutUs />} /> {/* Add route for AboutUs */}
-          <Route path="/contact" element={<ContactPage />} /> {/* Add route for ContactPage */}
+          <Route path="/aboutus" element={<AboutUs />} /> 
+          <Route path="/contact" element={<ContactPage />} /> 
         </Routes>
 
         <Footer />
