@@ -1,13 +1,21 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { FaBuilding, FaEnvelope, FaPhone } from 'react-icons/fa'
-import { motion } from "framer-motion"
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
-export default function ContatPage() {
+export default function ContactPage() {
   const canvasRef = useRef(null)
 
   useEffect(() => {
+    // Initialize AOS
+    AOS.init({
+      duration: 1000, // Animation duration in ms
+      easing: 'ease-in-out', // Easing type
+      once: true, // Whether animation should happen only once
+    });
+
+    // Setup canvas background animation
     const canvas = canvasRef.current
     const ctx = canvas.getContext('2d')
     let animationFrameId
@@ -71,29 +79,8 @@ export default function ContatPage() {
     }
   }, [])
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  }
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5
-      }
-    }
-  }
-
   return (
-    <div className="relative min-h-screen bg-[#0E1526] text-white overflow-hidden">
+    <div className="relative min-h-screen bg-[#0E1526] text-white overflow-hidden mt-12">
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full"
@@ -102,108 +89,82 @@ export default function ContatPage() {
       <div className="relative z-10 max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left Column - Get in touch */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="space-y-8">
-            <motion.h1 
-                variants={itemVariants}
-                className="text-5xl font-bold tracking-tight bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text ">
-                Get in touch
-            </motion.h1>
-            
-            <motion.p 
-                variants={itemVariants}
-                className="text-gray-400 text-lg max-w-md">
-                We’d love to hear from you! Whether you have any questions, 
-                need assistance, or just want to connect, don’t hesitate to reach out. 
-                We’ll respond as quickly as possible to assist you.
-            </motion.p>
-
-            <motion.img
-                variants={itemVariants}
-                src="Contact.png"  
-                alt="Contact Illustration"  
-                className="rounded-lg shadow-lg w-full max-w-lg object-cover"/>
-        </motion.div>
-
+          <div
+            className="space-y-8"
+            data-aos="fade-right"
+          >
+            <h1 className="text-5xl font-bold tracking-tight bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
+              Get in touch
+            </h1>
+            <p className="text-gray-400 text-lg max-w-md">
+              We’d love to hear from you! Whether you have any questions,
+              need assistance, or just want to connect, don’t hesitate to reach out.
+              We’ll respond as quickly as possible to assist you.
+            </p>
+            <img
+              src="Contact.png"
+              alt="Contact Illustration"
+              className="rounded-lg shadow-lg w-full max-w-md object-cover"
+              data-aos="zoom-in"
+            />
+          </div>
 
           {/* Right Column - Form */}
-          <motion.form
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="space-y-6"
-          >
+          <form className="space-y-6" data-aos="fade-left">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <motion.div variants={itemVariants}>
+                <div>
                 <label htmlFor="firstName" className="block text-sm font-medium mb-2">
-                  First name
+                    First name
                 </label>
                 <input
-                  type="text"
-                  id="firstName"
-                  className="w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-gray-700 focus:border-purple-500 focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 transition-colors"
+                    type="text"
+                    id="firstName"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-gray-700 focus:border-purple-500 focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 transition-colors"
                 />
-              </motion.div>
-
-              <motion.div variants={itemVariants}>
+                </div>
+                <div>
                 <label htmlFor="lastName" className="block text-sm font-medium mb-2">
-                  Last name
+                    Last name
                 </label>
                 <input
-                  type="text"
-                  id="lastName"
-                  className="w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-gray-700 focus:border-purple-500 focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 transition-colors"
+                    type="text"
+                    id="lastName"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-gray-700 focus:border-purple-500 focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 transition-colors"
                 />
-              </motion.div>
+                </div>
             </div>
-
-            <motion.div variants={itemVariants}>
-              <label htmlFor="email" className="block text-sm font-medium mb-2">
+            <div>
+                <label htmlFor="email" className="block text-sm font-medium mb-2">
                 Email
-              </label>
-              <input
+                </label>
+                <input
                 type="email"
                 id="email"
                 className="w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-gray-700 focus:border-purple-500 focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 transition-colors"
-              />
-            </motion.div>
-
-            <motion.div variants={itemVariants}>
-              <label htmlFor="phone" className="block text-sm font-medium mb-2">
-                Phone number
-              </label>
-              <input
-                type="tel"
-                id="phone"
-                className="w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-gray-700 focus:border-purple-500 focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 transition-colors"
-              />
-            </motion.div>
-
-            <motion.div variants={itemVariants}>
-              <label htmlFor="message" className="block text-sm font-medium mb-2">
+                />
+            </div>
+            <div>
+                <label htmlFor="message" className="block text-sm font-medium mb-2">
                 Message
-              </label>
-              <textarea
+                </label>
+                <textarea
                 id="message"
                 rows={6}
                 className="w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-gray-700 focus:border-purple-500 focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 transition-colors resize-none"
-              />
-            </motion.div>
-
-            <motion.button
-              variants={itemVariants}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full sm:w-auto px-8 py-3 bg-purple-600 hover:bg-purple-700 rounded-lg font-medium transition-colors  "
-            >
-              Send message
-            </motion.button>
-          </motion.form>
+                />
+            </div>
+            {/* Center the button */}
+            <div className="flex justify-center">
+                <button
+                className="w-full sm:w-auto px-12 py-3 bg-gradient-to-r from-purple-600 to-pink-500 hover:from-pink-500 hover:to-purple-600 rounded-lg font-medium transition-colors"
+                data-aos="fade-up"
+                >
+                Send message
+                </button>
+            </div>
+        </form>
         </div>
-      </div><br/><br/><br/>
+      </div> 
     </div>
   )
 }
