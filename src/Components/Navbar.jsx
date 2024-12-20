@@ -10,12 +10,12 @@ const Navbar = () => {
       <div className="container mx-auto flex h-20 items-center justify-between px-6 md:px-12">
         {/* Logo Section */}
         <Link to="HomePage.jsx" className="flex items-center">
-          {/* <img src="Logo.png" alt="HIRED Logo" className="w-40 h-40" /> */}
-          <span className="text-2xl font-bold text-white tracking-wide">HIRED</span>
+          <img src="Logo1.png" alt="HIRED Logo" className="w-[330px] h-40 mt-8 -ml-24" />
+          {/* <span className="text-2xl font-bold text-white tracking-wide">HIRED</span> */}
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-16 items-center text-base	">
+        <nav className="hidden md:flex space-x-16 items-center text-base font-medium">
           <Link to="" className="text-white hover:text-purple-400 transition duration-200">Home</Link>
           <Link to="/aboutus" className="text-white hover:text-purple-400 transition duration-200">About Us</Link>
           <Link to="/upgrade" className="text-white hover:text-purple-400 transition duration-200">Upgrade</Link>
@@ -48,8 +48,7 @@ const Navbar = () => {
                     <Link
                       to="/upgrade/candidates"
                       className="block px-4 py-2 text-sm text-white hover:bg-purple-500 hover:text-white transition duration-200"
-                      onClick={() => setIsUpgradeDropdownOpen(false)}
-                    >
+                      onClick={() => setIsUpgradeDropdownOpen(false)}>
                       Candidates
                     </Link>
                   </li>
@@ -57,8 +56,7 @@ const Navbar = () => {
                     <Link
                       to="/upgrade/companies"
                       className="block px-4 py-2 text-sm text-white hover:bg-purple-500 hover:text-white transition duration-200"
-                      onClick={() => setIsUpgradeDropdownOpen(false)}
-                    >
+                      onClick={() => setIsUpgradeDropdownOpen(false)}>
                       Companies
                     </Link>
                   </li>
