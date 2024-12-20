@@ -8,7 +8,7 @@ export default function AboutUs() {
       position: "Co-founder",
       description: "2nd year undergraduate student at University of Westminster",
       linkedin: "https://linkedin.com",
-      github: "https://github.com",
+      github: "https://github.com/SethumR",
       image: "Sethum.png", 
     },
     {
@@ -94,7 +94,7 @@ export default function AboutUs() {
         </div>
 
 
-        <div className="">
+        <div >
           <div className="bg-[#1d2638] rounded-3xl p-12  flex flex-col relative shadow-xl h-[450px]">
             <div className="pr-24">
               <h2 className="text-white text-4xl font-bold mb-4 ">
@@ -159,36 +159,34 @@ export default function AboutUs() {
           {displayedImages.map((member, index) => (
             <div
               key={index}
-              className="bg-slate-200 rounded-lg p-8 shadow-xl w-96 transform transition-transform hover:scale-105 duration-300"
+              className="bg-[#1d2638] rounded-lg p-8 shadow-xl w-96 transform transition-transform hover:scale-105 duration-300"
             >
               <img
                 src={member.image}
                 alt={`Team member ${currentIndex + index}`}
                 className="w-72 h-48 object-cover rounded-lg mb-6"
               />
-              <h3 className="text-2xl font-semibold text-gray-800 mb-2">
+              <h3 className="text-2xl font-semibold text-gray-800 mb-2 text-white">
                 {member.name}
               </h3>
-              <p className="text-sm text-gray-500">{member.position}</p>
-              <p className="text-gray-700 mt-4">{member.description}</p>
+              <p className="text-sm text-gray-500 text-white">{member.position}</p>
+              <p className="text-gray-700 mt-4 text-white">{member.description}</p>
               <div className="flex justify-center space-x-6 mt-6">
                 <a
-                  href={member.linkedin}
-                  className="text-blue-600 hover:text-blue-800"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaLinkedin size={22} />
+                    href={member.linkedin}
+                    className="text-white transform hover:scale-110 transition duration-200"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <FaLinkedin size={22} />
                 </a>
                 <a
-                  href={member.github}
-                  className="text-gray-800 hover:text-gray-900"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaGithub size={22} />
+                    href={member.github}
+                    className="text-white transform hover:scale-110 transition duration-200"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <FaGithub size={22} />
                 </a>
-              </div>
+            </div>
             </div>
           ))}
 
