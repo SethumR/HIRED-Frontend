@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer';
 import { FaBrain, FaPhoneAlt, FaFileAlt, FaMapMarkerAlt, FaBuilding, FaVolumeUp } from 'react-icons/fa';
 import ContactPage from './ContactPage';
 import AOS from 'aos';
-import 'aos/dist/aos.css'; // AOS animations CSS
+import 'aos/dist/aos.css'; 
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 
@@ -188,7 +188,7 @@ export default function HomePage() {
       <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-16 text-center" data-aos="fade-up">
         <button
           onClick={() => setActiveTab('candidates')}
-          className={`text-xl sm:text-2xl md:text-3xl font-bold py-2 px-4 rounded-lg transition duration-200 ${
+          className={`text-2xl sm:text-3xl md:text-4xl font-bold py-2 px-4 rounded-lg transition duration-200 ${
             activeTab === 'candidates'
               ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text'
               : 'text-gray-500 hover:text-gray-700'
@@ -242,7 +242,7 @@ export default function HomePage() {
       </div>
 
       {/* Animated Stats Section */}
-      <div className="container mx-auto px-4 py-16 mb-32">
+      <div className="container mx-auto px-4 py-16 mb-4">
         <div className="shadow-lg rounded-lg p-10 bg-[#0E1526] shadow-slate-800" data-aos="fade-up">
           <div className="flex flex-col space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-2">
@@ -258,10 +258,17 @@ export default function HomePage() {
         </div>
       </div>
 
+
+      {/* Prototype Section */}
+      <div className="flex justify-center items-center h-screen mb-12">
+         <img src="Prototype.png" alt="Prototype" className="h-96 w-auto sm:h-[500px] sm:w-auto" />
+      </div>
+
+
       <div className="max-w-6xl mx-auto p-4 mb-32">
         <div className="relative w-full overflow-hidden rounded-lg shadow-lg" style={{ paddingBottom: '56.25%' }} data-aos="zoom-in">
           <iframe
-            src="https://www.youtube.com/embed/JPMsNSDNows"
+            src="https://www.youtube.com/embed/xNu5wGP3UgA"
             title="Prepare for your Interview!"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
