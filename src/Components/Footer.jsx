@@ -9,14 +9,14 @@ export default function HomePage() {
   return (
     <footer className="bg-[#0E1526] text-gray-300 py-12 px-6 relative ">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24"> 
           {/* Left Column */}
           <div className="space-y-6">
             <h2 className="text-white text-2xl font-semibold">HIRED</h2>
             <p className="text-gray-400 leading-relaxed ">
               At HIRED, we are committed to revolutionizing job preparation by providing comprehensive interview simulations and feedback. 
               Our innovative AI-driven platform helps individuals refine their skills, boost confidence, and enhance their interview performance.
-              By combining personalized real-time analysis of responses, body language, and appearance, HIRED empowers users to excel in interviews. 
+              By combining personal ized real-time analysis of responses, body language, and appearance, HIRED empowers users to excel in interviews. 
               Join us in our mission to help people achieve their career goals and succeed in a world where professionalism and preparedness lead to success.
             </p>
             <div className="flex gap-4">

@@ -268,7 +268,7 @@ export default function HomePage() {
       <div className="max-w-6xl mx-auto p-4 mb-32">
         <div className="relative w-full overflow-hidden rounded-lg shadow-lg" style={{ paddingBottom: '56.25%' }} data-aos="zoom-in">
           <iframe
-            src="https://www.youtube.com/embed/xNu5wGP3UgA"
+            src="https://www.youtube.com/embed/xNu5wGP3UgA "
             title="Prepare for your Interview!"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
