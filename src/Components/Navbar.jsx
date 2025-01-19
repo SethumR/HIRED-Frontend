@@ -7,7 +7,7 @@ const Navbar = () => {
 
   return (
     <header className="fixed top-0 w-full z-50 bg-[#0E1526] backdrop-blur-md shadow-lg font-poppins">
-      <div className="container mx-auto flex h-20 items-center justify-between px-6 md:px-12">
+      <div className="container mx-auto flex h-24 items-center justify-between px-6 md:px-12">
         {/* Logo Section */}
         <Link to="HomePage.jsx" className="flex items-center">
           <img src="Logo1.png" alt="HIRED Logo" className="w-[330px] h-40 mt-8 -ml-24" />

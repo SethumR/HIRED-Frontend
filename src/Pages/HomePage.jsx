@@ -157,12 +157,7 @@ export default function HomePage() {
             </h1>
             <div className="space-y-6 text-gray-400 leading-relaxed tracking-wide">
               <p className="text-lg">
-                Prepare for your interviews with real-time voice-to-voice mock
-                interviews powered by the world&apos;s most advanced AI.
-                Say goodbye to interview performance anxiety. Master any role,
-                level, and industry to land your Dream Job.
-                Get detailed feedback on your answers with actionable suggestions
-                to improve them.
+              Prepare for interviews with AI-powered mock sessions to gain confidence, overcome anxiety, and excel in any role or industry. Get detailed feedback and suggestions to improve your responses, ensuring you're ready to land your dream job.
               </p>
             </div>
             <div data-aos="fade-right">
@@ -209,18 +204,17 @@ export default function HomePage() {
       </div>
 
       {/* Features Grid */}
-      <div className="max-w-7xl mx-auto mb-32">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-24 lg:mb-32">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="p-4 sm:p-6 border border-gray-800 rounded-lg hover:border-gray-600 transition-colors duration-300 h-full"
+              className="p-6 md:p-8 border border-gray-800 rounded-lg hover:border-gray-600 transition-colors duration-300 flex flex-col h-full"
               data-aos="flip-up"
-              style={{ height: '320px' }}
             >
               <div className="flex flex-col items-center text-center h-full">
                 <motion.div
-                  className="w-12 h-12 mb-7 text-white flex items-center justify-center"
+                  className="w-12 h-12 mb-6 text-white flex items-center justify-center"
                   animate={{
                     x: [0, 10, 0],
                     transition: {
@@ -228,18 +222,23 @@ export default function HomePage() {
                       repeat: Infinity,
                       repeatType: 'loop',
                       ease: 'easeInOut',
-                    }
+                    },
                   }}
                 >
                   <feature.icon className="w-8 h-8" />
                 </motion.div>
-                <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-4">{feature.title}</h2>
-                <p className="text-gray-400 text-sm sm:text-base">{feature.description}</p>
+                <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4">
+                  {feature.title}
+                </h2>
+                <p className="text-gray-400 text-sm sm:text-base md:text-lg leading-relaxed">
+                  {feature.description}
+                </p>
               </div>
             </div>
           ))}
         </div>
       </div>
+
 
       {/* Animated Stats Section */}
       <div className="container mx-auto px-4 py-16 mb-4">
