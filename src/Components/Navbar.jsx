@@ -46,22 +46,22 @@ const Navbar = () => {
                 <ul className="py-2">
                   <li>
                     <Link
-                      to="/upgrade/candidates"
-                      className="block px-4 py-2 text-sm text-white hover:bg-purple-500 hover:text-white transition duration-200"
+                      to="/SignUp"
+                      className="block px-4 py-2 text-white hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:bg-clip-text hover:text-transparent transition duration-200"
                       onClick={() => setIsUpgradeDropdownOpen(false)}>
                       Candidates
                     </Link>
                   </li>
                   <li>
                     <Link
-                      to="/upgrade/companies"
-                      className="block px-4 py-2 text-sm text-white hover:bg-purple-500 hover:text-white transition duration-200"
+                      to="/SignUp"
+                      className="block px-4 py-2 text-white hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:bg-clip-text hover:text-transparent transition duration-200"
                       onClick={() => setIsUpgradeDropdownOpen(false)}>
                       Companies
                     </Link>
                   </li>
                 </ul>
-              </div>
+            </div>
             )}
           </div>
 
