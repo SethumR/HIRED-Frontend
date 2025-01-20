@@ -65,7 +65,16 @@ const Navbar = () => {
             )}
           </div>
 
-          <Link to="/ContactUs" className="text-white hover:text-purple-400 transition duration-200">Contact Us</Link>
+          <Link 
+              to="/ContactUs" 
+              className="text-white hover:text-purple-400 transition duration-200 border border-white rounded-md px-3 py-1.5 hover:border-purple-400">
+              Contact Us
+          </Link>
+          {/* <Link 
+              to="/ContactUs" 
+              className="text-white hover:text-purple-400 transition duration-200 bg-gradient-to-r from-purple-700 to-pink-500 text-transparent rounded-md px-3.5 py-1.5 hover:border-purple-400">
+              Contact Us
+          </Link> */}
         </nav>
 
         {/* Mobile Menu Toggle */}
