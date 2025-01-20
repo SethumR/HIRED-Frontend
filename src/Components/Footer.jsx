@@ -82,14 +82,22 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Scroll to Top Button */}
+      <div class="fixed -bottom-6 -right-12">
+        <img 
+          src="Robot.gif" 
+          alt="example gif" 
+          class="w-50 h-40 "
+        />
+      </div>
+
+      {/* Scroll to Top Button
       <button
         onClick={scrollToTop}
         className="fixed bottom-6 right-6 p-3 bg-blue-950 text-white rounded-full hover:bg-blue-900 transition-colors"
         aria-label="Scroll to top"
       >
         <FaArrowUp className="w-6 h-6" />
-      </button>
+      </button> */}
     </footer>
   )
 }
