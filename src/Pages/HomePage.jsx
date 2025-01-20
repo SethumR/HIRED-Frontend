@@ -131,6 +131,9 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-[#0E1526] text-white">
+
+      
+
       {/* Hero Section */}
       <div className="container mx-auto px-6 pt-48  lg:pt-60 lg:pb-48">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -179,6 +182,7 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+
 
       <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-16 text-center" data-aos="fade-up">
         <button
@@ -257,6 +261,15 @@ export default function HomePage() {
         </div>
       </div>
 
+      <div>
+        <h1 className="text-center text-5xl font-semibold mb-12">
+          Try an Interactive Demo
+        </h1>
+        <div className="w-3/4 mx-auto border border-gray-400 p-72 rounded-lg mb-40">
+          <img src="" alt="" />
+        </div>
+      </div>
+
 
       {/* Interview */}
       <div className="min-h-screen  text-white p-8">
@@ -304,7 +317,7 @@ export default function HomePage() {
             <img
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ADTDzY8b61AG4C31WpOnyCl7mKEl93.png"
               alt="Interview list showing different job positions and their schedules"
-              className="rounded-xl h-96 object-cover border border-white shadow-purple-900 shadow-md"
+              className="rounded-xl h-96 object-cover border border-gray-300 shadow-border-white shadow-md"
               />
           </div>
         </div>
@@ -350,25 +363,24 @@ export default function HomePage() {
             <img
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ADTDzY8b61AG4C31WpOnyCl7mKEl93.png"
               alt="Interview list showing different job positions and their schedules"
-              className="rounded-xl h-96 object-cover border border-white shadow-purple-900 shadow-md"
+              className="rounded-xl h-96 object-cover border border-gray-300 shadow-border-white shadow-md"
               />
           </div>
         </div>
       </div>
 
-  
+      <div>
+        <h1 className='text-center text-5xl font-semibold mb-12'>Unleash Your Career Potential</h1>
+        <p className='text-gray-400 text-xl leading-relaxed text-center mb-16'>Maximizing your skills and talents to achieve professional success and personal growth. 
+          It’s about taking charge of your career, embracing new opportunities, and striving for 
+          continuous improvement to reach your fullest potential.</p>
+          <div className="flex justify-center">
+            <button className="mb-32 bg-gradient-to-r from-purple-600 to-pink-500 hover:from-pink-500 hover:to-purple-600 text-white px-6 py-4 text-lg font-semibold rounded-xl transition duration-300 ease-in-out transform hover:scale-105 shadow-lg">
+              Try a Free Mock Interview
+            </button>
+          </div>
+      </div>
 
-      {/* <div className="max-w-6xl mx-auto p-4 mb-32">
-        <div className="relative w-full overflow-hidden rounded-lg shadow-lg" style={{ paddingBottom: '56.25%' }} data-aos="zoom-in">
-          <iframe
-            src="https://www.youtube.com/embed/xNu5wGP3UgA "
-            title="Prepare for your Interview!"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="absolute top-0 left-0 w-full h-full border-0"
-          />
-        </div>
-      </div> */}
       <ContactPage />
     </div>
   );
