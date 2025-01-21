@@ -8,6 +8,7 @@ import ContactPage from './Pages/ContactPage';
 import AboutUs from './Pages/AboutUs'; // Import the AboutUs page
 import 'aos/dist/aos.css';
 import SignUp from './Pages/SignUp';
+import SignIn from './Pages/SignIn';
 
 const App = () => {
   return (
@@ -20,6 +21,8 @@ const App = () => {
           <Route path="/aboutus" element={<AboutUs />} /> 
           <Route path="/contact" element={<ContactPage />} /> 
           <Route path="/signup" element={<SignUp/>}/>
+          <Route path="/signin" element={<SignIn/>}/>
+
         </Routes>
 
         <Footer />
