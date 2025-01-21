@@ -65,7 +65,7 @@ function SignUp() {
         {/* Login Link */}
         <p className="mt-8 text-base">
           Already have an account?{" "}
-          <a href="/login" className="text-white hover:underline">
+          <a href="/signin" className="text-white hover:underline">
             Log in here
           </a>
         </p>
