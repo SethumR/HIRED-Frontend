@@ -80,7 +80,7 @@ export default function ContactPage() {
   }, [])
 
   return (
-    <div className="relative min-h-screen bg-[#0E1526] text-white overflow-hidden mt-24">
+    <div className="relative min-h-screen bg-[#0E1526] text-white overflow-hidden mt-12">
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full"

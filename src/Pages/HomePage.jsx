@@ -275,7 +275,7 @@ export default function HomePage() {
       <div className="min-h-screen  text-white p-8">
         <h1 className="text-5xl font-semibold text-center mb-24">Breeze through your interviews</h1>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto mb-36">
+        <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto mb-40">
           {/* Interview List Image */}
           <div className="relative">
           <img
@@ -297,52 +297,6 @@ export default function HomePage() {
               comprehensive and job position specific preparation.
             </p>
           </div>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto mb-36">
-          {/* Description Section */}
-          <div className="space-y-6">
-            <h2 className="text-3xl font-semibold">Customize Mock Interviews for any Job Industry</h2>
-            <p className="text-gray-400 leading-relaxed">
-              Take charge of your interview preparation journey! Our supercharged Mock Interviewer AI empowers you to
-              create custom mock interviews for any job industry. Specify your job title, paste the job description, and
-              choose the interview type — Behavioral, Technical, Leadership, or HR. Practice with precision, preparing for
-              your upcoming interviews with questions tightly tailored to the provided job description, ensuring a
-              comprehensive and job position specific preparation.
-            </p>
-          </div>
-
-          {/* Interview List Image */}
-          <div className="relative">
-            <img
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ADTDzY8b61AG4C31WpOnyCl7mKEl93.png"
-              alt="Interview list showing different job positions and their schedules"
-              className="rounded-xl h-96 object-cover border border-gray-300 shadow-border-white shadow-md"
-              />
-          </div>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto mb-36">
-            {/* Interview List Image */}
-            <div className="relative">
-              <img
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ADTDzY8b61AG4C31WpOnyCl7mKEl93.png"
-                alt="Interview list showing different job positions and their schedules"
-                className="rounded-xl h-96 object-cover border border-purple-700 shadow-purple-900 shadow-md"
-                />
-            </div>
-
-            {/* Description Section */}
-            <div className="space-y-6">
-              <h2 className="text-3xl font-semibold">Customize Mock Interviews for any Job Industry</h2>
-              <p className="text-gray-400 leading-relaxed">
-                Take charge of your interview preparation journey! Our supercharged Mock Interviewer AI empowers you to
-                create custom mock interviews for any job industry. Specify your job title, paste the job description, and
-                choose the interview type — Behavioral, Technical, Leadership, or HR. Practice with precision, preparing for
-                your upcoming interviews with questions tightly tailored to the provided job description, ensuring a
-                comprehensive and job position specific preparation.
-              </p>
-            </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto mb-40">
@@ -367,9 +321,55 @@ export default function HomePage() {
               />
           </div>
         </div>
+
+        <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto mb-40">
+            {/* Interview List Image */}
+            <div className="relative">
+              <img
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ADTDzY8b61AG4C31WpOnyCl7mKEl93.png"
+                alt="Interview list showing different job positions and their schedules"
+                className="rounded-xl h-96 object-cover border border-purple-700 shadow-purple-900 shadow-md"
+                />
+            </div>
+
+            {/* Description Section */}
+            <div className="space-y-6">
+              <h2 className="text-3xl font-semibold">Customize Mock Interviews for any Job Industry</h2>
+              <p className="text-gray-400 leading-relaxed">
+                Take charge of your interview preparation journey! Our supercharged Mock Interviewer AI empowers you to
+                create custom mock interviews for any job industry. Specify your job title, paste the job description, and
+                choose the interview type — Behavioral, Technical, Leadership, or HR. Practice with precision, preparing for
+                your upcoming interviews with questions tightly tailored to the provided job description, ensuring a
+                comprehensive and job position specific preparation.
+              </p>
+            </div>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto mb-28">
+          {/* Description Section */}
+          <div className="space-y-6">
+            <h2 className="text-3xl font-semibold">Customize Mock Interviews for any Job Industry</h2>
+            <p className="text-gray-400 leading-relaxed">
+              Take charge of your interview preparation journey! Our supercharged Mock Interviewer AI empowers you to
+              create custom mock interviews for any job industry. Specify your job title, paste the job description, and
+              choose the interview type — Behavioral, Technical, Leadership, or HR. Practice with precision, preparing for
+              your upcoming interviews with questions tightly tailored to the provided job description, ensuring a
+              comprehensive and job position specific preparation.
+            </p>
+          </div>
+
+          {/* Interview List Image */}
+          <div className="relative">
+            <img
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ADTDzY8b61AG4C31WpOnyCl7mKEl93.png"
+              alt="Interview list showing different job positions and their schedules"
+              className="rounded-xl h-96 object-cover border border-gray-300 shadow-border-white shadow-md"
+              />
+          </div>
+        </div>
       </div>
 
-      <div>
+      {/* <div>
         <h1 className='text-center text-5xl font-semibold mb-12'>Unleash Your Career Potential</h1>
         <p className='text-gray-400 text-xl leading-relaxed text-center mb-16'>Maximizing your skills and talents to achieve professional success and personal growth. 
           It’s about taking charge of your career, embracing new opportunities, and striving for 
@@ -379,7 +379,7 @@ export default function HomePage() {
               Try a Free Mock Interview
             </button>
           </div>
-      </div>
+      </div> */}
 
       <ContactPage />
     </div>
