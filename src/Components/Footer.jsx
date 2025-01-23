@@ -69,7 +69,7 @@ export default function HomePage() {
                 </div>
                 <div>
                   <p className="text-gray-400">Website:</p>
-                  <p>Hired.com</p>
+                  <p>Hired.solutions</p>
                 </div>
               </div>
             </div>
@@ -82,7 +82,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div class="fixed -bottom-6 -right-12">
+      <div class="fixed -bottom-6 -right-12 ">
         <img 
           src="Robot.gif" 
           alt="example gif" 
