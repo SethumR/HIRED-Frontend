@@ -80,7 +80,7 @@ export default function ContactPage() {
   }, [])
 
   return (
-    <div className="relative min-h-screen bg-[#0E1526] text-white overflow-hidden mt-12">
+    <div className="relative min-h-screen bg-[#0b0f1c] text-white overflow-hidden mt-12">
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full"
@@ -155,12 +155,11 @@ export default function ContactPage() {
             </div>
             {/* Center the button */}
             <div className="flex justify-center">
-                <button
-                className="w-full sm:w-auto px-12 py-3 bg-gradient-to-r from-purple-600 to-pink-500 hover:from-pink-500 hover:to-purple-600 rounded-lg font-medium transition-colors"
-                data-aos="fade-up"
-                >
+              <button
+                className="w-full sm:w-ful px-10 py-3 bg-gradient-to-r from-purple-600 to-pink-500 hover:from-pink-500 hover:to-purple-600 rounded-lg font-medium transition-colors"
+                data-aos="fade-up">
                 Send message
-                </button>
+              </button>
             </div>
         </form>
         </div>
