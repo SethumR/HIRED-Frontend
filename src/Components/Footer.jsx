@@ -94,7 +94,7 @@ export default function HomePage() {
         <img 
           src="animated.gif" 
           alt="example gif" 
-          class="w-30 h-[110px] "
+          class="w-30 h-[100px] "
         />
       </div>
 
