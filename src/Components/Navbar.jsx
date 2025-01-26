@@ -6,7 +6,7 @@ const Navbar = () => {
   const [isUpgradeDropdownOpen, setIsUpgradeDropdownOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-[#0E1526] backdrop-blur-md shadow-lg font-poppins">
+    <header className="fixed top-0 w-full z-50 bg-[#0b0f1c] backdrop-blur-md shadow-lg font-poppins">
       <div className="container mx-auto flex h-24 items-center justify-between px-6 md:px-12">
         {/* Logo Section */}
         <Link to="HomePage.jsx" className="flex items-center">
@@ -19,6 +19,11 @@ const Navbar = () => {
           <Link to="" className="text-white hover:text-purple-400 transition duration-200">Home</Link>
           <Link to="/aboutus" className="text-white hover:text-purple-400 transition duration-200">About Us</Link>
           <Link to="/upgrade" className="text-white hover:text-purple-400 transition duration-200">Upgrade</Link>
+          <Link 
+              to="/ContactUs" 
+              className="text-white hover:text-purple-400 transition duration-200  hover:border-purple-400">
+              Contact Us
+          </Link>
 
           {/* Upgrade Dropdown */}
           <div className="relative">
@@ -42,7 +47,7 @@ const Navbar = () => {
             </button>
 
             {isUpgradeDropdownOpen && (
-              <div className="absolute mt-2 w-28 bg-[#0E1526] rounded-md shadow-lg z-50 ">
+              <div className="absolute mt-2 w-28 bg-[#0b0f1c] rounded-md shadow-lg z-50 ">
                 <ul className="py-2">
                   <li>
                     <Link
@@ -64,17 +69,6 @@ const Navbar = () => {
             </div>
             )}
           </div>
-
-          <Link 
-              to="/ContactUs" 
-              className="text-white hover:text-purple-400 transition duration-200 border border-white rounded-md px-3 py-1.5 hover:border-purple-400">
-              Contact Us
-          </Link>
-          {/* <Link 
-              to="/ContactUs" 
-              className="text-white hover:text-purple-400 transition duration-200 bg-gradient-to-r from-purple-700 to-pink-500 text-transparent rounded-md px-3.5 py-1.5 hover:border-purple-400">
-              Contact Us
-          </Link> */}
         </nav>
 
         {/* Mobile Menu Toggle */}
@@ -94,7 +88,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <nav className="md:hidden bg-[#0E1526] shadow-md">
+        <nav className="md:hidden bg-[#0b0f1c] shadow-md">
           <ul className="flex flex-col items-center py-6 space-y-6">
             <li>
               <Link
@@ -135,7 +129,7 @@ const Navbar = () => {
                 </svg>
               </button>
               {isUpgradeDropdownOpen && (
-                <div className="mt-2 bg-[#0a0b14] rounded-md shadow-lg">
+                <div className="mt-2 bg-[#0d1221] rounded-md shadow-lg">
                   <ul className="py-2">
                     <li>
                       <Link

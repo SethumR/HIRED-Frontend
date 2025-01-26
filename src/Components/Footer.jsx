@@ -7,7 +7,7 @@ export default function HomePage() {
   }
 
   return (
-    <footer className="bg-[#0E1526] text-gray-300 py-12 px-6 relative ">
+    <footer className="bg-[#0b0f1c] text-gray-300 py-12 px-6 relative ">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24"> 
           {/* Left Column */}
@@ -82,11 +82,19 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div class="fixed -bottom-6 -right-12 ">
+      {/* <div class="fixed -bottom-6 -right-12 ">
         <img 
           src="Robot.gif" 
           alt="example gif" 
           class="w-50 h-40 "
+        />
+      </div> */}
+
+      <div class="fixed bottom-1 -right-2 ">
+        <img 
+          src="animated.gif" 
+          alt="example gif" 
+          class="w-30 h-[110px] "
         />
       </div>
 
