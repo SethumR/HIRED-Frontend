@@ -38,12 +38,12 @@ function AnimatedStat({ endValue, label, suffix = '+' }) {
   }, [inView, endValue]);
 
   return (
-    <div ref={ref} className="text-center p-4" data-aos="fade-up">
+    <div ref={ref} className="text-center p-4" data-aos="fade">
       <div className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500 text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
         {new Intl.NumberFormat().format(count)}
         {suffix}
       </div>
-      <div className="text-white text-xs md:text-sm lg:text-base font-medium">
+      <div className="text-white text-sm md:text-sm lg:text-base font-medium">
         {label}
       </div>
     </div>
@@ -136,7 +136,7 @@ export default function HomePage() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Section */}
           <div className="space-y-8">
-            <h1 className="text-4xl lg:text-6xl font-bold leading-tight text-white tracking-wide ">
+            <h1 className="text-4xl lg:text-[55px] font-bold leading-tight text-white tracking-wide ">
               Are You Looking{" "}
               <span className="block">
                 <TypeAnimation
@@ -156,12 +156,12 @@ export default function HomePage() {
               </span>
             </h1>
             <div className="space-y-6 text-gray-400 leading-relaxed tracking-wide">
-              <p className="text-lg">
+              <p className="text-[16px] sm:text-lg">
               Prepare for interviews with AI-powered mock sessions to gain confidence, overcome anxiety, and excel in any role or industry. Get detailed feedback and suggestions to improve your responses, ensuring you're ready to land your dream job.
               </p>
             </div>
             <div data-aos="fade-right">
-              <button className="bg-gradient-to-r from-purple-600 to-pink-500 hover:from-pink-500 hover:to-purple-600 text-white px-6 py-4 text-lg font-semibold rounded-xl transition duration-300 ease-in-out transform hover:scale-105 shadow-lg">
+              <button className="bg-gradient-to-r from-purple-600 to-pink-500 hover:from-pink-500 hover:to-purple-600 text-white px-5 py-3 text-lg font-semibold rounded-xl transition duration-300 ease-in-out transform hover:scale-105 shadow-lg">
                 Try a Free Mock Interview
               </button>
             </div>
@@ -177,38 +177,45 @@ export default function HomePage() {
             />
             <div className="absolute -z-10 inset-0 bg-purple-500 blur-[100px] opacity-30"></div>
           </div>
-       
-          <div className="max-w-lg overflow-hidden mx-auto ml-1 -mt-2  bg-[#0d1221] shadow-lg shadow-cyan-500/10 h-24 rounded-xl"> {/* Reduced height */}
-            <motion.div
-              className="flex space-x-6 "
-              animate={{ x: ['0%', '-100%'] }}
-              transition={{
-                duration: 15,
-                repeat: Infinity,
-                ease: 'linear',
-              }}
-            >
-              <img src="Google.png" alt="Google" className="w-28 h-24 object-contain" /> {/* Reduced image size */}
-              <img src="Meta.png" alt="Meta" className="w-28 h-24 object-contain" />
-              <img src="Amazon.png" alt="Amazon" className="w-28 h-24 object-contain" />
-              <img src="Netflix.png" alt="Netfix" className="w-28 h-24 object-contain" />
-              <img src="Mic.png" alt="Microsoft" className="w-28 h-24 object-contain" />
-              {/* Duplicate the images to make the animation seamless */}
-              <img src="Google.png" alt="Google" className="w-28 h-24 object-contain" /> 
-              <img src="Meta.png" alt="Meta" className="w-28 h-24 object-contain" />
-              <img src="Amazon.png" alt="Amazon" className="w-28 h-24 object-contain" />
-              <img src="Netflix.png" alt="Netfix" className="w-28 h-24 object-contain" />
-              <img src="Mic.png" alt="Microsoft" className="w-28 h-24 object-contain" />
-            </motion.div>
+
+          <div data-aos="fade">
+            <div className="max-w-xs sm:max-w-lg overflow-hidden mx-auto ml-1 -mt-2 bg-[#0d1221] shadow-lg shadow-cyan-500/10 h-20 sm:h-24 rounded-xl sm:mb-1 mb-28">
+              <motion.div
+                className="flex space-x-8 justify-center"
+                animate={{ x: ['0%', '-100%'] }}
+                transition={{
+                  duration: 15,
+                  repeat: Infinity,
+                  ease: 'linear',
+                }}
+              >
+                <img src="Google.png" alt="Google" className="w-28 h-24 object-contain" /> {/* Reduced image size */}
+                <img src="Meta.png" alt="Meta" className="w-28 h-24 object-contain" />
+                <img src="Amazon.png" alt="Amazon" className="w-28 h-24 object-contain" />
+                <img src="Netflix.png" alt="Netfix" className="w-28 h-24 object-contain" />
+                <img src="Mic.png" alt="Microsoft" className="w-28 h-24 object-contain" />
+                <img src="Airbnb.png" alt="Microsoft" className="w-28 h-24 object-contain" />
+                <img src="Op.png" alt="Microsoft" className="w-28 h-24 object-contain" />
+
+                {/* Duplicate the images to make the animation seamless */}
+                <img src="Google.png" alt="Google" className="w-28 h-24 object-contain" /> 
+                <img src="Meta.png" alt="Meta" className="w-28 h-24 object-contain" />
+                <img src="Amazon.png" alt="Amazon" className="w-28 h-24 object-contain" />
+                <img src="Netflix.png" alt="Netfix" className="w-28 h-24 object-contain" />
+                <img src="Mic.png" alt="Microsoft" className="w-28 h-24 object-contain" />
+                <img src="Airbnb.png" alt="Microsoft" className="w-28 h-24 object-contain" />
+                <img src="Op.png" alt="Microsoft" className="w-28 h-24 object-contain" />
+              </motion.div>
+            </div>
           </div>
         </div>
       </div>
 
 
-      <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-16 text-center" data-aos="fade">
+      <div className="flex flex-row justify-center -space-x-1 sm:space-x-4 mb-16 text-center" data-aos="fade">
         <button
           onClick={() => setActiveTab('candidates')}
-          className={`text-2xl sm:text-3xl md:text-4xl font-bold py-2 px-4 rounded-lg transition duration-200 ${
+          className={`text-[27px] sm:text-3xl md:text-[33px] font-bold py-2 px-4 rounded-lg transition duration-200 ${
             activeTab === 'candidates'
               ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text'
               : 'text-gray-500 hover:text-gray-700'
@@ -218,7 +225,7 @@ export default function HomePage() {
         </button>
         <button
           onClick={() => setActiveTab('companies')}
-          className={`text-2xl sm:text-3xl md:text-4xl font-bold py-2 px-4 rounded-lg transition duration-200 ${
+          className={`text-[27px] sm:text-3xl md:text-[33px] font-bold py-2 px-4 rounded-lg transition duration-200 ${
             activeTab === 'companies'
               ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text'
               : 'text-gray-500 hover:text-gray-700'
@@ -228,13 +235,14 @@ export default function HomePage() {
         </button>
       </div>
 
+
       {/* Features Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-24 lg:mb-32">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="p-6 md:p-8 border border-gray-800 rounded-lg hover:border-gray-600 transition-colors duration-300 flex flex-col h-full"
+              className="p-6 md:p-8 border border-gray-800 rounded-lg hover:border-gray-600 transition-colors duration-300 flex flex-col h-full max-w-xs sm:max-w-sm lg:max-w-md mx-auto"
               data-aos="fade"
             >
               <div className="flex flex-col items-center text-center h-full">
@@ -283,154 +291,168 @@ export default function HomePage() {
       </div>
 
       <div data-aos="fade">
-        <h1 className="text-center text-5xl font-semibold mb-12">
+        <h1 className="text-center text-3xl md:text-5xl font-semibold mb-8 md:mb-12">
           Try an Interactive Demo
         </h1>
-        <div className="w-3/4 mx-auto border border-gray-400 p-72 rounded-lg mb-40">
-          <img src="" alt="" />
+        <div className="w-full md:w-4/5 lg:w-3/4 mx-auto border border-gray-400 p-6 md:p-12 lg:p-20 rounded-lg mb-20 md:mb-40 h-96 md:h-[500px] lg:h-[560px]">
+          <img
+            src=""
+            alt="Demo Screenshot"
+            className="w-full h-full object-cover rounded-lg"
+          />
         </div>
       </div>
 
 
         {/* Interview */}
         <div className="min-h-screen  text-white p-8 ">
-          <div data-aos="fade">
-            <h1 className="text-5xl font-semibold text-center mb-24 ">Breeze through your interviews</h1>
-          </div>
-
-          <div data-aos="fade-right">
-            <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto mb-40">
-              {/* Description Section */}
-              <div className="space-y-6">
-                <h2 className="text-3xl font-semibold">Customize Mock Interviews for any Job Industry</h2>
-                <p className="text-gray-400 leading-relaxed">
-                  Take charge of your interview preparation journey! Our supercharged Mock Interviewer AI empowers you to
-                  create custom mock interviews for any job industry. Specify your job title, paste the job description, and
-                  choose the interview type — Behavioral, Technical, Leadership, or HR. Practice with precision, preparing for
-                  your upcoming interviews with questions tightly tailored to the provided job description, ensuring a
-                  comprehensive and job position specific preparation.
-                </p>
-              </div>
-
-              {/* Interview List Image */}
-              <div className="relative">
-                <img
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ADTDzY8b61AG4C31WpOnyCl7mKEl93.png"
-                  alt="Interview list showing different job positions and their schedules"
-                  className="rounded-xl h-96 object-cover border border-purple-700 shadow-purple-900 shadow-md"
-                  />
-              </div>
-          </div>
+        <div data-aos="fade">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-semibold text-center mb-20 sm:mb-32">
+            Breeze through your interviews
+          </h1>
         </div>
 
-        
         <div data-aos="fade-left">
-          <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto mb-40">
-            {/* Interview List Image */}
-            <div className="relative">
-              <img
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ADTDzY8b61AG4C31WpOnyCl7mKEl93.png"
-                alt="Interview list showing different job positions and their schedules"
-                className="rounded-xl h-96 object-cover border border-gray-300 shadow-border-white shadow-md"
-                />
-            </div>
-            
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto mb-28 sm:mb-40">
             {/* Description Section */}
             <div className="space-y-6">
-              <h2 className="text-3xl font-semibold">Customize Mock Interviews for any Job Industry</h2>
-              <p className="text-gray-400 leading-relaxed">
+              <h2 className="text-2xl sm:text-3xl font-semibold">Customize Mock Interviews for any Job Industry</h2>
+              <p className="text-gray-400 leading-relaxed ">
                 Take charge of your interview preparation journey! Our supercharged Mock Interviewer AI empowers you to
                 create custom mock interviews for any job industry. Specify your job title, paste the job description, and
                 choose the interview type — Behavioral, Technical, Leadership, or HR. Practice with precision, preparing for
                 your upcoming interviews with questions tightly tailored to the provided job description, ensuring a
-                comprehensive and job position specific preparation.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div data-aos="fade-left">
-          <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto mb-28">
-            {/* Description Section */}
-            <div className="space-y-6">
-              <h2 className="text-3xl font-semibold">Customize Mock Interviews for any Job Industry</h2>
-              <p className="text-gray-400 leading-relaxed">
-                Take charge of your interview preparation journey! Our supercharged Mock Interviewer AI empowers you to
-                create custom mock interviews for any job industry. Specify your job title, paste the job description, and
-                choose the interview type — Behavioral, Technical, Leadership, or HR. Practice with precision, preparing for
-                your upcoming interviews with questions tightly tailored to the provided job description, ensuring a
-                comprehensive and job position specific preparation.
+                comprehensive and job position-specific preparation.
               </p>
             </div>
 
             {/* Interview List Image */}
             <div className="relative">
               <img
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ADTDzY8b61AG4C31WpOnyCl7mKEl93.png"
+                src=""
                 alt="Interview list showing different job positions and their schedules"
-                className="rounded-xl h-96 object-cover border border-purple-700 shadow-purple-900 shadow-md"
-                />
+                className="rounded-xl w-full h-64 sm:h-80 lg:h-96 object-cover border border-purple-700 shadow-purple-900 shadow-lg"
+              />
             </div>
           </div>
         </div>
 
         <div data-aos="fade-right">
-          <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto mb-40">
-              {/* Interview List Image */}
-              <div className="relative">
-                <img
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ADTDzY8b61AG4C31WpOnyCl7mKEl93.png"
-                  alt="Interview list showing different job positions and their schedules"
-                  className="rounded-xl h-96 object-cover border border-gray-300 shadow-border-white shadow-md"
-                  />
-              </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto mb-28 sm:mb-40">
 
-              {/* Description Section */}
-              <div className="space-y-6">
-                <h2 className="text-3xl font-semibold">Customize Mock Interviews for any Job Industry</h2>
-                <p className="text-gray-400 leading-relaxed">
-                  Take charge of your interview preparation journey! Our supercharged Mock Interviewer AI empowers you to
-                  create custom mock interviews for any job industry. Specify your job title, paste the job description, and
-                  choose the interview type — Behavioral, Technical, Leadership, or HR. Practice with precision, preparing for
-                  your upcoming interviews with questions tightly tailored to the provided job description, ensuring a
-                  comprehensive and job position specific preparation.
-                </p>
-              </div>
+            {/* Interview List Image */}
+            <div className="relative">
+              <img
+                src=""
+                alt="Interview list showing different job positions and their schedules"
+                className="rounded-xl w-full h-64 sm:h-80 lg:h-96 object-cover border border-gray-300 shadow-slate-500 shadow-md"
+              />
+            </div>
+
+            {/* Description Section */}
+            <div className="space-y-6">
+              <h2 className="text-2xl sm:text-3xl font-semibold">Customize Mock Interviews for any Job Industry</h2>
+              <p className="text-gray-400 leading-relaxed">
+                Take charge of your interview preparation journey! Our supercharged Mock Interviewer AI empowers you to
+                create custom mock interviews for any job industry. Specify your job title, paste the job description, and
+                choose the interview type — Behavioral, Technical, Leadership, or HR. Practice with precision, preparing for
+                your upcoming interviews with questions tightly tailored to the provided job description, ensuring a
+                comprehensive and job position-specific preparation.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div data-aos="fade-left">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto mb-28 sm:mb-40">
+            {/* Description Section */}
+            <div className="space-y-6">
+              <h2 className="text-2xl sm:text-3xl font-semibold">Customize Mock Interviews for any Job Industry</h2>
+              <p className="text-gray-400 leading-relaxed">
+                Take charge of your interview preparation journey! Our supercharged Mock Interviewer AI empowers you to
+                create custom mock interviews for any job industry. Specify your job title, paste the job description, and
+                choose the interview type — Behavioral, Technical, Leadership, or HR. Practice with precision, preparing for
+                your upcoming interviews with questions tightly tailored to the provided job description, ensuring a
+                comprehensive and job position-specific preparation.
+              </p>
+            </div>
+
+            {/* Interview List Image */}
+            <div className="relative">
+              <img
+                src=""
+                alt="Interview list showing different job positions and their schedules"
+                className="rounded-xl w-full h-64 sm:h-80 lg:h-96 object-cover border border-purple-700 shadow-purple-900 shadow-lg"
+              />
+            </div>
+          </div>
+        </div>
+        
+        <div data-aos="fade-right">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto mb-28 sm:mb-40">
+            {/* Interview List Image */}
+            <div className="relative">
+              <img
+                src=""
+                alt="Interview list showing different job positions and their schedules"
+                className="rounded-xl w-full h-64 sm:h-80 lg:h-96 object-cover border  border-gray-300 shadow-slate-500 shadow-md"
+              />
+            </div>
+
+            {/* Description Section */}
+            <div className="space-y-6">
+              <h2 className="text-2xl sm:text-3xl font-semibold">Customize Mock Interviews for any Job Industry</h2>
+              <p className="text-gray-400 leading-relaxed">
+                Take charge of your interview preparation journey! Our supercharged Mock Interviewer AI empowers you to
+                create custom mock interviews for any job industry. Specify your job title, paste the job description, and
+                choose the interview type — Behavioral, Technical, Leadership, or HR. Practice with precision, preparing for
+                your upcoming interviews with questions tightly tailored to the provided job description, ensuring a
+                comprehensive and job position-specific preparation.
+              </p>
+            </div>
           </div>
         </div>
       </div>
 
       <div data-aos="fade">
-        <h1 className='text-center text-5xl font-semibold mb-12 '>Unleash Your Career Potential</h1>
-        <p className='space-y-6 text-gray-400 leading-relaxed tracking-wide text-xl text-center mb-10 max-w-5xl mx-auto'>
-          Land your dream job at your dream company by showcasing your skills, passion, and determination. 
-          Prepare, stand out, and take the first step toward the career you’ve always wanted.</p>
+        <h1 className="text-center text-3xl sm:text-4xl md:text-4xl font-semibold mb-8 sm:mb-10 md:mb-12">
+          Unleash Your Career Potential
+        </h1>
+        <p className="space-y-6 text-gray-400 leading-relaxed tracking-wide text-base sm:text-lg md:text-xl text-center mb-6 sm:mb-8 md:mb-10 max-w-3xl sm:max-w-4xl md:max-w-5xl mx-auto">
+          Land your dream job at your dream company by showcasing your skills, passion, and determination.
+          Prepare, stand out, and take the first step toward the career you’ve always wanted.
+        </p>
 
-          <div className="max-w-5xl overflow-hidden mx-auto  bg-[#0d1221] shadow-lg shadow-cyan-500/10 h-32 rounded-xl mb-24"> {/* Reduced height */}
-            <motion.div
-              className="flex space-x-12  "
-              animate={{ x: ['0%', '-100%'] }}
-              transition={{
-                duration: 15,
-                repeat: Infinity,
-                ease: 'linear',
-              }}
-            >
-              <img src="Google.png" alt="Image 1" className="w-36 h-40 object-contain" />
-              <img src="Meta.png" alt="Image 2" className="w-36 h-40 object-contain" />
-              <img src="Amazon.png" alt="Image 3" className="w-36 h-40 object-contain" />
-              <img src="Netflix.png" alt="Image 4" className="w-36 h-40 object-contain" />
-              <img src="Mic.png" alt="Image 5" className="w-36 h-40 object-contain" />
-              {/* Duplicate the images to make the animation seamless */}
-              <img src="Google.png" alt="Image 1" className="w-36 h-40 object-contain" />
-              <img src="Meta.png" alt="Image 2" className="w-36 h-40 object-contain" />
-              <img src="Amazon.png" alt="Image 3" className="w-36 h-40 object-contain" />
-              <img src="Netflix.png" alt="Image 4" className="w-36 h-40 object-contain" />
-              <img src="Mic.png" alt="Image 5" className="w-36 h-40 object-contain" />
-            </motion.div>
-          </div>
+        <div className="max-w-sm sm:max-w-5xl overflow-hidden mx-auto bg-[#0d1221] shadow-lg shadow-cyan-500/10 h-24 sm:h-[120px] rounded-xl mb-32"> {/* Reduced height */}
+          <motion.div
+            className="flex space-x-12"
+            animate={{ x: ['0%', '-100%'] }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: 'linear',
+            }}
+          >
+            <img src="Google.png" alt="Image 1" className="w-28 h-32 sm:w-32 sm:h-36 object-contain" />
+            <img src="Meta.png" alt="Image 2" className="w-28 h-32 sm:w-32 sm:h-36 object-contain" />
+            <img src="Amazon.png" alt="Image 3" className="w-28 h-32 sm:w-32 sm:h-36 object-contain" />
+            <img src="Netflix.png" alt="Image 4" className="w-28 h-32 sm:w-32 sm:h-36 object-contain" />
+            <img src="Mic.png" alt="Image 5" className="w-28 h-32 sm:w-32 sm:h-36 object-contain" />
+            <img src="Airbnb.png" alt="Image 5" className="w-28 h-32 sm:w-32 sm:h-36 object-contain" />
+            <img src="Op.png" alt="Image 5" className="w-28 h-32 sm:w-32 sm:h-36 object-contain" />
 
-        <div className="flex items-center justify-center w-full mb-40">
+            {/* Duplicate the images to make the animation seamless */}
+            <img src="Google.png" alt="Image 1" className="w-28 h-32 sm:w-32 sm:h-36 object-contain" />
+            <img src="Meta.png" alt="Image 2" className="w-28 h-32 sm:w-32 sm:h-36 object-contain" />
+            <img src="Amazon.png" alt="Image 3" className="w-28 h-32 sm:w-32 sm:h-36 object-contain" />
+            <img src="Netflix.png" alt="Image 4" className="w-28 h-32 sm:w-32 sm:h-36 object-contain" />
+            <img src="Mic.png" alt="Image 5" className="w-28 h-32 sm:w-32 sm:h-36 object-contain" />
+            <img src="Airbnb.png" alt="Image 5" className="w-28 h-32 sm:w-32 sm:h-36 object-contain" />
+            <img src="Op.png" alt="Image 5" className="w-28 h-32 sm:w-32 sm:h-36 object-contain" />
+          </motion.div>
+        </div>
+
+        <div className="flex items-center justify-center mb-40">
           <img src="Map1.png" alt="" />
         </div>
       </div>
