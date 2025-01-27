@@ -28,8 +28,8 @@ const Navbar = () => {
           {/* Upgrade Dropdown */}
           <div className="relative">
             <button
-            className="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text hover:text-purple-300 transition duration-200 flex items-center space-x-1"
-            onClick={() => setIsUpgradeDropdownOpen(!isUpgradeDropdownOpen)}>
+              className="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text hover:from-purple-600 hover:to-pink-600 transition duration-200 flex items-center space-x-1"
+              onClick={() => setIsUpgradeDropdownOpen(!isUpgradeDropdownOpen)}>
               <span>Sign Up</span>
               <svg
                 className="w-5 h-5 text-purple-500"
