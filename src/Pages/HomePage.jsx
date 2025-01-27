@@ -133,7 +133,7 @@ export default function HomePage() {
     {
       question: "What is HIRED ?",
       answer:
-        "Mock Interviewer AI is an advanced artificial intelligence system designed to help you practice and prepare for job interviews through realistic simulations.",
+        "Hired solutions is an advanced artificial intelligence system designed to help you practice and prepare for job interviews through realistic simulations.",
     },
     {
       question: "Can I practice interviews for any job in any industry?",
