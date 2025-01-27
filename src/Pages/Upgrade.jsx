@@ -3,7 +3,7 @@ import React from 'react'
 function Upgrade() {
   return (
     <div className='mt-28'>
-      <h1 className='text-white'>Nehan </h1>
+      <h1 className='text-white'>Nehan Karunaratne </h1>
       <div className="w-full mb-4">
           <label htmlFor="email" className="block mb-2">
             Email address
