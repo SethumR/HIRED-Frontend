@@ -179,7 +179,7 @@ export default function HomePage() {
           </div>
 
           <div data-aos="fade">
-            <div className="max-w-xs sm:max-w-lg overflow-hidden mx-auto ml-1 -mt-2 bg-[#0d1221] shadow-lg shadow-cyan-500/10 h-20 sm:h-24 rounded-xl sm:mb-1 mb-28">
+            <div className="max-w-xs sm:max-w-lg overflow-hidden mx-auto ml-1 -mt-2 bg-[#0d1221] shadow-lg shadow-cyan-500/20 h-20 sm:h-24 rounded-xl sm:mb-1 mb-28">
               <motion.div
                 className="flex space-x-8 justify-center"
                 animate={{ x: ['0%', '-100%'] }}
