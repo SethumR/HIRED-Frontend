@@ -9,6 +9,7 @@ import AboutUs from './Pages/AboutUs'; // Import the AboutUs page
 import 'aos/dist/aos.css';
 import SignUp from './Pages/SignUp';
 import SignIn from './Pages/SignIn';
+import Upgrade from './Pages/Upgrade';
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="/contact" element={<ContactPage />} /> 
           <Route path="/signup" element={<SignUp/>}/>
           <Route path="/signin" element={<SignIn/>}/>
+          <Route path="/upgrade" element={<Upgrade/>}/>
 
         </Routes>
 

@@ -294,11 +294,11 @@ export default function HomePage() {
         <h1 className="text-center text-3xl md:text-5xl font-semibold mb-8 md:mb-12">
           Try an Interactive Demo
         </h1>
-        <div className="w-full md:w-4/5 lg:w-3/4 mx-auto border border-gray-400 p-6 md:p-12 lg:p-20 rounded-lg mb-20 md:mb-40 h-96 md:h-[500px] lg:h-[560px]">
+        <div className="w-full md:w-4/5 lg:w-3/4 mx-auto border p-6 md:p-12 lg:p-20 rounded-lg mb-20 md:mb-40 h-96 md:h-[500px] lg:h-[560px]  border-gray-300 shadow-slate-500 shadow-md">
           <img
             src=""
             alt="Demo Screenshot"
-            className="w-full h-full object-cover rounded-lg"
+            className="w-full h-full object-cover rounded-lg "
           />
         </div>
       </div>
