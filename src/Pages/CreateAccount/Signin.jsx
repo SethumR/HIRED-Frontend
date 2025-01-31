@@ -3,7 +3,7 @@
 import React from "react"
 import { motion } from "framer-motion"
 
-const ModernSignUp = () => {
+const SignIn = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white flex flex-col items-center justify-center px-4 py-8 mt-16">
       <motion.div
@@ -27,17 +27,18 @@ const ModernSignUp = () => {
             className="w-full bg-gray-700/50 border border-gray-600 rounded-lg p-3 text-white placeholder:text-gray-400 focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 ease-in-out"
           />
         </div>
+
         <div className="mb-6">
-          <label htmlFor="Password" className="block mb-2 text-sm font-medium text-gray-300">
-            Password
-          </label>
-          <input
-            id="Password"
-            type="Password"
-            placeholder="Abc@123"
-            className="w-full bg-gray-700/50 border border-gray-600 rounded-lg p-3 text-white placeholder:text-gray-400 focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 ease-in-out"
-          />
-        </div>
+        <label htmlFor="Password" className="block mb-2 text-sm font-medium text-gray-300">
+          Password
+        </label>
+        <input
+          id="Password"
+          type="Password"
+          placeholder="Abc@123"
+          className="w-full bg-gray-700/50 border border-gray-600 rounded-lg p-3 text-white placeholder:text-gray-400 focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 ease-in-out"
+        />
+      </div>
 
         <motion.button
           whileHover={{ scale: 1.03 }}
@@ -57,7 +58,6 @@ const ModernSignUp = () => {
        <div className="space-y-4 mb-8">
           {[
             { image: "https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png", text: "Login with Google" },
-            { image: "https://static.vecteezy.com/system/resources/previews/042/127/218/non_2x/round-circle-blue-facebook-logo-with-long-shadow-on-a-transparent-background-free-png.png", text: "Login with Facebook" },
             { image: "https://cdn.freebiesupply.com/images/large/2x/apple-logo-white.png", text: "Login with Apple" }
           ].map((button, index) => (
             <motion.button
@@ -77,7 +77,7 @@ const ModernSignUp = () => {
         </div>
 
 
-        <p className="text-center text-gray-400">
+        <p className="text-center text-gray-400 text-sm">
           Don't have an account?{" "}
           <a
             href="/signup"
@@ -103,5 +103,5 @@ const ModernSignUp = () => {
   )
 }
 
-export default ModernSignUp
+export default SignIn
 
