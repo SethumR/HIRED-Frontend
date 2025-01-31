@@ -7,9 +7,9 @@ import Footer from './Components/Footer';
 import ContactPage from './Pages/ContactPage'; 
 import AboutUs from './Pages/AboutUs'; // Import the AboutUs page
 import 'aos/dist/aos.css';
-import SignUp from './Pages/SignUp';
-import SignIn from './Pages/SignIn';
 import Upgrade from './Pages/Upgrade';
+import SignIn from './Pages/CreateAccount/Signin';
+import Signup from './Pages/CreateAccount/SignupForm';
 
 const App = () => {
   return (
@@ -21,8 +21,8 @@ const App = () => {
           <Route path="/" element={<Homepage />} />
           <Route path="/aboutus" element={<AboutUs />} /> 
           <Route path="/contact" element={<ContactPage />} /> 
-          <Route path="/signup" element={<SignUp/>}/>
-          <Route path="/signin" element={<SignIn/>}/>
+          <Route path="/signin" element={<SignIn/>} /> 
+          <Route path="/signup" element={<Signup/>} /> 
           <Route path="/upgrade" element={<Upgrade/>}/>
 
         </Routes>
