@@ -51,7 +51,7 @@ const Navbar = () => {
                 <ul className="py-2">
                   <li>
                     <Link
-                      to="/SignUp"
+                      to="/signup"
                       className="block px-4 py-2 text-white hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:bg-clip-text hover:text-transparent transition duration-200"
                       onClick={() => setIsUpgradeDropdownOpen(false)}>
                       Candidates
@@ -59,7 +59,7 @@ const Navbar = () => {
                   </li>
                   <li>
                     <Link
-                      to="/SignUp"
+                      to="/signup"
                       className="block px-4 py-2 text-white hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:bg-clip-text hover:text-transparent transition duration-200"
                       onClick={() => setIsUpgradeDropdownOpen(false)}>
                       Companies
