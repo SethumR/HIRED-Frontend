@@ -127,6 +127,68 @@ export default function HomePage() {
     }
   ];
 
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const faqData = [
+    {
+      question: "What is HIRED ?",
+      answer:
+        "Hired solutions is an advanced artificial intelligence system designed to help you practice and prepare for job interviews through realistic simulations.",
+    },
+    {
+      question: "Can I practice interviews for any job in any industry?",
+      answer:
+        "Yes, our AI system is trained to conduct interviews across various industries and job roles, adapting to your specific needs and requirements.",
+    },
+    {
+      question: "Can I practice for any interview round with Mock Interviewer AI?",
+      answer:
+        "Yes, you can practice for different types of interview rounds including technical, behavioral, and leadership interviews.",
+    },
+    {
+      question: "How many mock interviews can I take?",
+      answer:
+        "The number of mock interviews depends on your subscription plan. Please check our pricing page for detailed information.",
+    },
+    {
+      question: "What kind of feedback do I receive after an interview?",
+      answer:
+        "You receive comprehensive feedback on your performance, including analysis of your responses, communication skills, and areas for improvement.",
+    },
+    {
+      question: "How does Hired ensure the relevance of interview questions?",
+      answer:
+        "Our AI system continuously updates its question bank based on current industry trends and real interview experiences.",
+    },
+    {
+      question: "How can I contact Coustomer Support?",
+      answer:
+        "If you have any questions or need assistance, you can contact our customer support team through the contact form on our website or by emailing hired.infous@gmail.com We are here to help!",
+    },
+  ];
+
+  const toggleQuestion = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  const StepCard = ({ step, imageSrc, title, description }) => (
+    <div className="relative">
+      <div className="absolute -top-4 left-4 w-10 h-10 rounded-full bg-gradient-to-r from-purple-500 to-pink-500  text-white flex items-center justify-center text-xl font-semibold">
+        {step}
+      </div>
+      <div className="bg-[#dbdede] rounded-xl p-6 h-full">
+        <img
+          src={imageSrc}
+          alt={`${title} interface`}
+          className="w-full rounded-lg mb-6"
+        />
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">{title}</h2>
+        <p className="text-gray-600">{description}</p>
+      </div>
+    </div>
+  );
+
+
   const features = activeTab === 'candidates' ? candidateFeatures : companyFeatures;
 
   return (
@@ -179,7 +241,7 @@ export default function HomePage() {
           </div>
 
           <div data-aos="fade">
-            <div className="max-w-xs sm:max-w-lg overflow-hidden mx-auto ml-1 -mt-2 bg-[#0d1221] shadow-lg shadow-cyan-500/10 h-20 sm:h-24 rounded-xl sm:mb-1 mb-28">
+            <div className="max-w-xs sm:max-w-lg overflow-hidden mx-auto ml-1 -mt-2 bg-[#0d1221] shadow-lg shadow-cyan-500/20 h-20 sm:h-24 rounded-xl sm:mb-1 mb-28">
               <motion.div
                 className="flex space-x-8 justify-center"
                 animate={{ x: ['0%', '-100%'] }}
@@ -275,7 +337,7 @@ export default function HomePage() {
       
       {/* Animated Stats Section */}
       <div className="container mx-auto px-4 py-16 mb-28">
-        <div className="shadow-lg rounded-lg p-10 bg-[#0d1221] shadow-slate-800" >
+        <div className="shadow-lg rounded-lg p-10 bg-[#0d1221] shadow-cyan-500/10 border border-gray-900" >
           <div className="flex flex-col space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-2">
               <AnimatedStat endValue={150000} label="Interviews Conducted in 2023" />
@@ -291,10 +353,10 @@ export default function HomePage() {
       </div>
 
       <div data-aos="fade">
-        <h1 className="text-center text-3xl md:text-5xl font-semibold mb-8 md:mb-12">
+        <h1 className="text-center text-3xl md:text-[40px] font-semibold mb-8 md:mb-12">
           Try an Interactive Demo
         </h1>
-        <div className="w-full md:w-4/5 lg:w-3/4 mx-auto border p-6 md:p-12 lg:p-20 rounded-lg mb-20 md:mb-40 h-96 md:h-[500px] lg:h-[560px]  border-gray-300 shadow-slate-500 shadow-md">
+        <div className="w-full md:w-4/5 lg:w-3/4 mx-auto border border-gray-700  p-6 md:p-12 lg:p-20 rounded-lg mb-20 md:mb-40 h-96 md:h-[500px] lg:h-[560px]  shadow-slate-700 shadow-sm">
           <img
             src=""
             alt="Demo Screenshot"
@@ -456,6 +518,66 @@ export default function HomePage() {
           <img src="Map1.png" alt="" />
         </div>
       </div>
+
+      <div data-aos="fade"> 
+        <div className="max-w-3xl mx-auto p-4 space-y-4 mb-28">
+          {faqData.map((item, index) => (
+            <div
+              key={index}
+              className="rounded-lg overflow-hidden bg-[#0b0f1c] shadow-cyan-500/50 shadow-sm"
+            >
+              <button
+                onClick={() => toggleQuestion(index)}
+                className="w-full px-6 py-4 text-left flex justify-between items-center text-white hover:bg-[#0b0f1c]"
+              >
+                <span className="text-lg">{item.question}</span>
+                <span className="text-2xl font-medium">{openIndex === index ? "-" : "+"}</span>
+              </button>
+              {openIndex === index && (
+                <div className="px-6 py-4 text-gray-300 bg-[#0b0f1c]">
+                  <p>{item.answer}</p>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+
+     <div data-aos="fade"> 
+        <section className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8 mb-40">
+        <h1 className="text-3xl md:text-[42px] font-bold text-center mb-16">
+          Master the Interview Process
+        </h1>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <StepCard
+            step={1}
+            imageSrc="https://cdn.prod.website-files.com/62775a91cc3db44c787149de/67195c0b266b3b9cab514958_interview-step-2.webp"
+            title="Set Up Your Interview"
+            description="Select from different interview formats and let our AI interview coach customize the questions for your target role."
+          />
+          <StepCard
+            step={2}
+            imageSrc="https://cdn.prod.website-files.com/62775a91cc3db44c787149de/67195c0b266b3b9cab514958_interview-step-2.webp"
+            title="Practice Naturally"
+            description="Have realistic conversations with our AI interviewer in a pressure-free environment at your own pace."
+          />
+          <StepCard
+            step={3}
+            imageSrc="https://cdn.prod.website-files.com/62775a91cc3db44c787149de/67195c0b266b3b9cab514958_interview-step-2.webp"
+            title="Get Instant Feedback"
+            description="Receive detailed performance insights and actionable recommendations after each practice session."
+          />
+          <StepCard
+            step={4}
+            imageSrc="https://cdn.prod.website-files.com/62775a91cc3db44c787149de/67195c0b266b3b9cab514958_interview-step-2.webp"
+            title="Build Confidence"
+            description="Review your recorded sessions, track your improvement, and prepare effectively for real interviews."
+          />
+        </div>
+      </section>
+    </div>
+
 
 
       {/* <div>

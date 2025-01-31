@@ -1,83 +1,107 @@
+"use client"
+
 import React from "react"
-import { Apple, Facebook, Mail } from "lucide-react"
+import { motion } from "framer-motion"
 
-function SignIn() {
+const ModernSignUp = () => {
   return (
-    <div className="min-h-screen bg-[#0E1526] text-white flex flex-col items-center px-4 py-8 mt-24" >
-   
-
-      {/* Main Content */}
-      <div className="w-full max-w-[450px] flex flex-col items-center">
-        <h1 className="text-[48px] leading-[52px] font-bold text-center mb-10">
-          Sign In
-          <br />
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white flex flex-col items-center justify-center px-4 py-8 mt-16">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="w-full max-w-sm bg-gray-800/30 backdrop-blur-xl p-8 rounded-2xl shadow-2xl border border-gray-700/50"
+      >
+        <h1 className="text-3xl font-bold text-center mb-8 bg-gradient-to-r from-purple-400 to-pink-400 text-transparent bg-clip-text">
+          Unlock Your Access
         </h1>
 
-        {/* Email Input */}
-        <div className="w-full mb-4">
-          <label htmlFor="email" className="block mb-2">
+        <div className="mb-6">
+          <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-300">
             Email address
           </label>
           <input
             id="email"
             type="email"
             placeholder="name@domain.com"
-            className="w-full bg-[#121212] border border-gray-700 rounded-md p-3 text-white placeholder:text-gray-500"
+            className="w-full bg-gray-700/50 border border-gray-600 rounded-lg p-3 text-white placeholder:text-gray-400 focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 ease-in-out"
+          />
+        </div>
+        <div className="mb-6">
+          <label htmlFor="Password" className="block mb-2 text-sm font-medium text-gray-300">
+            Password
+          </label>
+          <input
+            id="Password"
+            type="Password"
+            placeholder="Abc@123"
+            className="w-full bg-gray-700/50 border border-gray-600 rounded-lg p-3 text-white placeholder:text-gray-400 focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 ease-in-out"
           />
         </div>
 
-        {/* Next Button */}
-        <button className="w-full bg-[#1ed760] hover:bg-[#1fdf64] text-black font-bold py-3 rounded-full mb-8 transition-colors">
+        <motion.button
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+          className="w-full bg-gradient-to-r from-purple-500 to-pink-500 font-bold py-3 rounded-lg mb-6 hover:from-pink-500 hover:to-purple-500 transition-all duration-300 ease-in-out shadow-lg"
+        >
           Next
-        </button>
+        </motion.button>
 
-        {/* Divider */}
-        <div className="w-full flex items-center gap-3 mb-8">
-          <div className="h-[1px] flex-1 bg-gray-700" />
-          <span className="text-sm">or</span>
-          <div className="h-[1px] flex-1 bg-gray-700" />
+        <div className="flex items-center gap-3 mb-6">
+          <div className="h-px flex-1 bg-gray-600" />
+          <span className="text-sm text-gray-400">or continue with</span>
+          <div className="h-px flex-1 bg-gray-600" />
         </div>
 
-        {/* Social Buttons */}
-        <div className="w-full space-y-3">
-          <button className="w-full border border-gray-700 rounded-full py-3 flex items-center justify-center gap-2 hover:border-white transition-colors">
-            <Mail className="w-6 h-6" />
-            Sign up with Google
-          </button>
-          <button className="w-full border border-gray-700 rounded-full py-3 flex items-center justify-center gap-2 hover:border-white transition-colors">
-            <Facebook className="w-6 h-6" />
-            Sign up with Facebook
-          </button>
-          <button className="w-full border border-gray-700 rounded-full py-3 flex items-center justify-center gap-2 hover:border-white transition-colors">
-            <Apple className="w-6 h-6" />
-            Sign up with Apple
-          </button>
+         {/* Social Buttons */}
+       <div className="space-y-4 mb-8">
+          {[
+            { image: "https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png", text: "Login with Google" },
+            { image: "https://static.vecteezy.com/system/resources/previews/042/127/218/non_2x/round-circle-blue-facebook-logo-with-long-shadow-on-a-transparent-background-free-png.png", text: "Login with Facebook" },
+            { image: "https://cdn.freebiesupply.com/images/large/2x/apple-logo-white.png", text: "Login with Apple" }
+          ].map((button, index) => (
+            <motion.button
+              key={index}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-full border border-gray-700 rounded-3xl py-[9px] flex items-center hover:bg-gray-800 transition-all duration-300 ease-in-out"
+            >
+              <img src={button.image} alt={button.text} className="w-8 h-8 ml-4" />
+              <span className="flex-1 text-center">{button.text}</span>
+            </motion.button>
+          ))}
         </div>
 
-        {/* Login Link */}
-        <p className="mt-8 text-base">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="h-px flex-1 bg-gray-700" />
+        </div>
+
+
+        <p className="text-center text-gray-400">
           Don't have an account?{" "}
-          <a href="/signup" className="text-white hover:underline">
-            Sign up  here
+          <a
+            href="/signup"
+            className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 hover:underline"
+          >
+            Sign Up Here
           </a>
         </p>
 
-        {/* Footer Text */}
-        <p className="mt-8 text-xs text-gray-400 text-center">
+        <p className="mt-8 text-xs text-gray-500 text-center">
           This site is protected by reCAPTCHA and the Google{" "}
-          <a href="/privacy" className="text-white hover:underline">
+          <a href="/privacy" className="text-gray-400 hover:underline">
             Privacy Policy
           </a>{" "}
           and{" "}
-          <a href="/terms" className="text-white hover:underline">
+          <a href="/terms" className="text-gray-400 hover:underline">
             Terms of Service
           </a>{" "}
           apply.
         </p>
-      </div>
+      </motion.div>
     </div>
   )
 }
 
-export default SignIn
+export default ModernSignUp
 

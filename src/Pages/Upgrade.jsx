@@ -2,14 +2,6 @@ import React from 'react';
 
 function Upgrade() {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-[#0E1526]">
-      <div className="w-full max-w-5xl p-8 bg-[#111827] rounded-2xl shadow-lg">
-        <h2 className="text-3xl font-bold text-center bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text text-opacity-100 mb-2 leading-relaxed">
-          Upgrade Your Plan
-        </h2>
-        <p className="text-center text-white mt-2">
-          Enhance your interview preparation with our tailored plans.
-        </p>
 
         <div className="mt-6 grid md:grid-cols-3 sm:grid-cols-2 gap-6">
           {/* Plan Card Component */}
