@@ -60,14 +60,14 @@ function Upgrade() {
               key={index}
               className="relative p-8 rounded-2xl border border-gray-800 shadow-lg bg-opacity-10 backdrop-blur-xl transition-transform transform hover:scale-105 duration-300"
               style={{
-                background: "linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05))",
+                background: "#161a26",
                 border: "1px solid rgba(255, 255, 255, 0.2)",
               }}
             >
               <h3 className="text-3xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text text-center">{plan.name}</h3>
               <ul className="text-gray-300 mt-4 space-y-3">
                 {plan.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-center space-x-2">
+                  <li key={idx} className="flex items-center space-x-3">
                     <span className="text-purple-400">✔</span>
                     <span>{feature}</span>
                   </li>
