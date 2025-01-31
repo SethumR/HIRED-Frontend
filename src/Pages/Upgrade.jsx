@@ -1,74 +1,83 @@
-import React from 'react';
+import React from "react";
 
 function Upgrade() {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-[#0E1526]">
-      <div className="w-full max-w-5xl p-8 bg-[#111827] rounded-2xl shadow-lg">
-        <h2 className="text-3xl font-bold text-center bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text text-opacity-100 mb-2 leading-relaxed">
-          Upgrade Your Plan
+    <div className="flex items-center justify-center min-h-screen bg-[#0b0f1c] p-6">
+      <div className="w-full max-w-6xl p-10 bg-[#0b0f1c] rounded-2xl shadow-xl">
+        <h2 className="text-4xl font-extrabold text-center text-white text-transparent bg-clip-text mb-4 leading-snug mt-12">
+          Upgrade Your Experience
         </h2>
-        <p className="text-center text-white mt-2">
-          Enhance your interview preparation with our tailored plans.
+        <p className="text-center text-gray-300 text-xl ">
+          Unlock exclusive features and take your interview preparation to the next level.
         </p>
 
-        <div className="mt-6 grid md:grid-cols-3 sm:grid-cols-2 gap-6">
-          {/* Plan Card Component */}
-          {[
-            {
-              name: "Basic",
-              price: "Free",
-              features: [
-                "Limited to 20 mock interviews per month",
-                "AI-generated feedback",
-                "Access to common interview questions",
-                "Email support",
-                "Basic tips and tricks",
-              ],
-            },
-            {
-              name: "Pro",
-              price: "$15",
-              features: [
-                "Unlimited mock interviews",
-                "AI-driven insights & detailed analysis",
-                "Personalized question bank",
-                "Advanced tips and strategies",
-                "Priority email support",
-                "Access to webinars",
-              ],
-            },
-            {
-              name: "Premium",
-              price: "$30",
-              features: [
-                "Unlimited mock interviews",
-                "1-on-1 expert coaching",
-                "Live feedback & performance tracking",
-                "Comprehensive interview courses",
-                "Exclusive content",
-                "24/7 support",
-              ],
-            },
+        <div className="mt-10 grid lg:grid-cols-3 md:grid-cols-2 gap-8 mb-16">
+        {[
+          {
+            name: "Basic",
+            price: "Free",
+            features: [
+              "20 mock interviews/month",
+              "AI-generated feedback",
+              "Common interview questions",
+              "Email support",
+              "Basic tips & tricks",
+              "Interview progress tracking",
+              "24/7 priority support",
+              "Resume formatting tips",
+            ],
+          },
+          {
+            name: "Pro",
+            price: "$15",
+            features: [
+              "Unlimited mock interviews",
+              "AI-driven insights & analysis",
+              "Personalized question bank",
+              "Advanced strategies",
+              "Priority email support",
+              "24/7 priority support",
+              "Role-specific interview sets",
+              "AI-powered voice tone analysis",
+            ],
+          },
+          {
+            name: "Premium",
+            price: "$30",
+            features: [
+              "Unlimited mock interviews",
+              "1-on-1 expert coaching",
+              "Live feedback & tracking",
+              "Comprehensive courses",
+              "Exclusive resources",
+              "24/7 priority support",
+              "Mock panel interviews",
+              "Private career counseling session",
+            ],
+          },
           ].map((plan, index) => (
             <div
               key={index}
-              className="relative p-6 bg-[#1E293B] rounded-2xl shadow-lg transform transition-transform hover:scale-105 duration-300 border border-gray-700 before:absolute before:inset-0 before:bg-gradient-to-r before:from-purple-500 before:to-pink-500 before:blur-lg before:opacity-20 hover:before:opacity-40 flex flex-col justify-between"
+              className="relative p-8 rounded-2xl border border-gray-800 shadow-lg bg-opacity-10 backdrop-blur-xl transition-transform transform hover:scale-105 duration-300"
+              style={{
+                background: "linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05))",
+                border: "1px solid rgba(255, 255, 255, 0.2)",
+              }}
             >
-              <div>
-                <h3 className="text-2xl font-semibold text-purple-400 relative">
-                  {plan.name}
-                </h3>
-                <ul className="text-white list-disc pl-5 mt-2 space-y-2">
-                  {plan.features.map((feature, idx) => (
-                    <li key={idx}>{feature}</li>
-                  ))}
-                </ul>
-              </div>
-              <div className="mt-4 relative text-center">
+              <h3 className="text-3xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text text-center">{plan.name}</h3>
+              <ul className="text-gray-300 mt-4 space-y-3">
+                {plan.features.map((feature, idx) => (
+                  <li key={idx} className="flex items-center space-x-2">
+                    <span className="text-purple-400">✔</span>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-6 text-center">
                 <span className="text-3xl font-bold text-white">{plan.price}</span>
-                {plan.price !== "Free" && <span className="text-white"> /Year</span>}
+                {plan.price !== "Free" && <span className="text-gray-400"> /Year</span>}
               </div>
-              <button className="mt-4 w-full bg-gradient-to-r from-purple-600 to-pink-500 text-white py-3 rounded-lg hover:from-pink-500 hover:to-purple-600 focus:outline-none focus:ring focus:ring-purple-300">
+              <button className="mt-6 w-full py-3 rounded-lg font-medium transition-all bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:from-pink-500 hover:to-purple-500 shadow-lg hover:shadow-purple-500/20">
                 Select Plan
               </button>
             </div>
