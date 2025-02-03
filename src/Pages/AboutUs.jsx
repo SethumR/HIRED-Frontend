@@ -15,54 +15,42 @@ export default function AboutUs() {
       name: "Sasindri Siriwardane",
       position: "Co-founder",
       description: "2nd year undergraduate student at University of Westminster",
-      linkedin: "https://linkedin.com",
-      github: "https://github.com",
-      image: "/placeholder.svg?height=400&width=400", 
+      linkedin: "https://www.linkedin.com/in/sasindri-siriwardene-314320273/",
+      github: "https://github.com/sasindri-siriwardene",
+      image: "Sasindri.png", 
     },
     {
       name: "Rehan Mandawala",
       position: "Co-founder",
       description: "2nd year undergraduate student at University of Westminster",
-      linkedin: "https://linkedin.com",
-      github: "https://github.com",
-      image: "/placeholder.svg?height=400&width=400", 
+      linkedin: "https://www.linkedin.com/in/rehan-mandawala-504142266?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+      github: "https://github.com/rehan20221237",
+      image: "rehan.jpg", 
     },
     {
       name: "Kavindu Gunathilake",
       position: "Co-founder",
       description: "2nd year undergraduate student at University of Westminster",
-      linkedin: "https://linkedin.com",
-      github: "https://github.com",
+      linkedin: "http://www.linkedin.com/in/kavindu-gunathilaka-86297b297",
+      github: "https://github.com/kethaka2005",
       image: "/placeholder.svg?height=400&width=400", 
     },
     {
-      name: "Nehan Karunarathne",
+      name: "Nehan Karunarathna",
       position: "Co-founder",
       description: "2nd year undergraduate student at University of Westminster",
-      linkedin: "https://linkedin.com",
-      github: "https://github.com",
-      image: "/placeholder.svg?height=400&width=400", 
+      linkedin: "https://www.linkedin.com/in/nehan-karunarathna-b80061301/",
+      github: "https://github.com/nehan-karunarathna",
+      image: "nehan.jpg", 
     },
     {
       name: "Tilan Wishwajith",
       position: "Co-founder",
       description: "2nd year undergraduate student at University of Westminster",
-      linkedin: "https://linkedin.com",
-      github: "https://github.com",
-      image: "/placeholder.svg?height=400&width=400", 
+      linkedin: "https://www.linkedin.com/in/tilan-wishwajith-381957320/",
+      github: "https://github.com/Tilanwishwajith-ai",
+      image: "/tilan.jpg", 
     },
-  ];
-
-  const images = [
-    { src: "/placeholder.svg?height=300&width=400", alt: "Group collaboration" },
-    { src: "/placeholder.svg?height=300&width=400", alt: "Classroom setting" },
-    { src: "/placeholder.svg?height=300&width=400", alt: "Break room discussion" },
-    { src: "/placeholder.svg?height=300&width=400", alt: "Meeting room view" },
-    { src: "/placeholder.svg?height=300&width=400", alt: "Discussion at desk" },
-    { src: "/placeholder.svg?height=300&width=400", alt: "Classroom wide view" },
-    { src: "/placeholder.svg?height=300&width=400", alt: "Group study session" },
-    { src: "/placeholder.svg?height=300&width=400", alt: "One-on-one mentoring" },
-    { src: "/placeholder.svg?height=300&width=400", alt: "Presentation in progress" },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -93,13 +81,11 @@ export default function AboutUs() {
           </button>
         </div>
 
-
-        <div >
-          <div className="bg-[#1d2638] rounded-3xl p-12  flex flex-col relative shadow-xl h-[450px]">
+        <div>
+          <div className="bg-[#1d2638] rounded-3xl p-12 flex flex-col relative shadow-xl h-[450px]">
             <div className="pr-24">
-              <h2 className="text-white text-4xl font-bold mb-4 ">
-                You’ve heard about our AI mock interview platform, but what
-                exactly is it all about?
+              <h2 className="text-white text-4xl font-bold mb-4">
+                Have you heard about our AI mock interview platform ?
               </h2>
               <p className="text-white/90 text-lg">
                 Discover how our project aims to revolutionize interview
@@ -146,58 +132,64 @@ export default function AboutUs() {
           </p>
         </div>
 
-        {/* 1-Column Layout for Team Member */}
-        <div className="flex justify-center items-center space-x-8 ">
+        {/* Team Member Cards */}
+        <div className="flex justify-center items-stretch space-x-8">
           <button
             onClick={prevSlide}
-            className="bg-gray-600 text-white rounded-full p-3 hover:bg-gray-700"
+            className="bg-gray-600 text-white rounded-full p-3 hover:bg-gray-700 h-fit self-center"
           >
             <FaChevronLeft size={22} />
           </button>
 
-          {/* Three separate boxes for images and descriptions */}
           {displayedImages.map((member, index) => (
             <div
               key={index}
-              className="bg-[#1d2638] rounded-lg p-8 shadow-xl w-96 transform transition-transform hover:scale-105 duration-300"
+              className="bg-[#1d2638] rounded-lg p-8 shadow-xl w-[420px] h-[600px] flex flex-col transform transition-transform hover:scale-105 duration-300"
             >
-              <img
-                src={member.image}
-                alt={`Team member ${currentIndex + index}`}
-                className="w-72 h-48 object-cover rounded-lg mb-6"
-              />
-              <h3 className="text-2xl font-semibold text-gray-800 mb-2 text-white">
-                {member.name}
-              </h3>
-              <p className="text-sm text-gray-500 text-white">{member.position}</p>
-              <p className="text-gray-700 mt-4 text-white">{member.description}</p>
-              <div className="flex justify-center space-x-6 mt-6">
-                <a
+              <div className="w-full h-[320px] mb-6">
+                <img
+                  src={member.image}
+                  alt={`Team member ${currentIndex + index}`}
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              </div>
+              <div className="flex flex-col flex-grow">
+                <h3 className="text-2xl font-semibold text-white mb-2">
+                  {member.name}
+                </h3>
+                <p className="text-sm text-white/70 mb-2">{member.position}</p>
+                <p className="text-white/90">{member.description}</p>
+                <div className="flex justify-center space-x-6 mt-auto pt-4">
+                  <a
                     href={member.linkedin}
                     className="text-white transform hover:scale-110 transition duration-200"
                     target="_blank"
-                    rel="noopener noreferrer">
+                    rel="noopener noreferrer"
+                  >
                     <FaLinkedin size={22} />
-                </a>
-                <a
+                  </a>
+                  <a
                     href={member.github}
                     className="text-white transform hover:scale-110 transition duration-200"
                     target="_blank"
-                    rel="noopener noreferrer">
+                    rel="noopener noreferrer"
+                  >
                     <FaGithub size={22} />
-                </a>
-            </div>
+                  </a>
+                </div>
+              </div>
             </div>
           ))}
 
           <button
             onClick={nextSlide}
-            className="bg-gray-600 text-white rounded-full p-3 hover:bg-gray-700"
+            className="bg-gray-600 text-white rounded-full p-3 hover:bg-gray-700 h-fit self-center"
           >
             <FaChevronRight size={22} />
           </button>
         </div>
-      </div><br/><br/><br/>
+      </div>
+      <br/><br/><br/>
     </div>
   );
 }
