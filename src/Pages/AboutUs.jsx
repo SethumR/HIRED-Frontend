@@ -85,7 +85,7 @@ export default function AboutUs() {
           <div className="bg-[#1d2638] rounded-3xl p-12 flex flex-col relative shadow-xl h-[450px]">
             <div className="pr-24">
               <h2 className="text-white text-4xl font-bold mb-4">
-                Have you heard about our AI mock interview platform ?
+                Have you heard about our AI mock interview platform?
               </h2>
               <p className="text-white/90 text-lg">
                 Discover how our project aims to revolutionize interview
