@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
-import GitHubLogin from 'react-github-login'; // Import the correct GitHub login component
+import GitHubLogin from 'react-github-login'; 
+import { FaGithub } from "react-icons/fa";
 
 const ErrorMessage = ({ message }) => (
   <motion.p
@@ -15,7 +16,8 @@ const ErrorMessage = ({ message }) => (
 );
 
 const EmailStep = ({ email, setEmail, error, handleNext }) => {
-  const [googleResponse, setGoogleResponse] = useState(null);
+  const [isHoveringGoogle, setIsHoveringGoogle] = useState(false);
+  const [isHoveringGithub, setIsHoveringGithub] = useState(false);
 
   const handleGoogleSuccess = (response) => {
     console.log("Google Token:", response.credential);
@@ -104,38 +106,55 @@ const EmailStep = ({ email, setEmail, error, handleNext }) => {
           <div className="h-px flex-1 bg-gray-600" />
         </div>
 
-        <div className="space-y-4 mb-8 flex justify-center">
-          <GitHubLogin
-            clientId="Ov23liujKfeX3V2GnVZs"
-            onSuccess={handleGitHubLogin}
-            onFailure={(error) => console.error(error)}
-            render={(props) => (
-              <motion.button
-                {...props}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-full max-w-xs border-2 border-gray-700 rounded-xl py-2 flex items-center justify-center hover:bg-gray-800 transition-all duration-300 ease-in-out"
+        <div className="flex flex-col items-center gap-4 w-full max-w-sm mx-auto">
+          <motion.div 
+            className="w-full"
+            onHoverStart={() => setIsHoveringGoogle(true)}
+            onHoverEnd={() => setIsHoveringGoogle(false)}
+          >
+            <div className={`
+              relative w-full transition-all duration-300 ease-in-out
+              ${isHoveringGoogle ? 'transform scale-[1.02]' : ''}
+            `}>
+              <GoogleLogin
+                id="google-login-button"
+                onSuccess={handleGoogleSuccess}
+                onError={() => console.log("Login Failed")}
+                theme="outline"
+                width="100%"
+                shape="rectangular"
+                locale="en"
+                text="continue_with"
+                useOneTap
+              />
+            </div>
+          </motion.div>
+
+          <motion.div 
+            className="w-full"
+            onHoverStart={() => setIsHoveringGithub(true)}
+            onHoverEnd={() => setIsHoveringGithub(false)}
+          >
+            <div className={`
+              relative overflow-hidden  transition-all duration-300 ease-in-out mb-6
+              ${isHoveringGithub ? 'transform scale-[1.02]' : ''}
+            `}>
+              <GitHubLogin
+                clientId="Ov23liujKfeX3V2GnVZs"
+                onSuccess={handleGitHubLogin}
+                onFailure={(error) => console.error(error)}
+                className="w-full py-2 px-4 flex items-center justify-center relative bg-white border border-gray-200 rounded-lg text-gray-800 font-medium text-sm shadow-sm hover:shadow-md transition-all duration-300"
               >
-                <img
-                  src="https://cdn1.iconfinder.com/data/icons/social-media-2210/24/github-512.png"
-                  alt="Login with GitHub"
-                  className="w-5 h-5 mr-2"
-                />
-                Sign in with GitHub
-              </motion.button>
-            )}
-          />
+                <FaGithub className="absolute left-3 w-5 h-5" />
+                <span className="mx-auto pl-7">Continue with GitHub</span>
+              </GitHubLogin>
+            </div>
+          </motion.div>
         </div>
 
-        <GoogleLogin
-          id="google-login-button"
-          onSuccess={handleGoogleSuccess}
-          onError={() => console.log("Login Failed")}
-          style={{ display: "none" }}
-        />
 
         <div className="flex items-center gap-3 mb-6">
-          <div className="h-px flex-1 bg-gray-700" />
+          <div className="h-px flex-1 bg-gray-600" />
         </div>
 
         <p className="text-center text-gray-400 text-sm">
@@ -149,11 +168,11 @@ const EmailStep = ({ email, setEmail, error, handleNext }) => {
         </p>
         <p className="mt-8 text-xs text-gray-500 text-center">
           This site is protected by reCAPTCHA and the Google{" "}
-          <a href="/privacy" className="text-gray-400 hover:underline">
+          <a href="https://policies.google.com/privacy?hl=en-US" className="text-gray-400 hover:underline">
             Privacy Policy
           </a>{" "}
           and{" "}
-          <a href="/terms" className="text-gray-400 hover:underline">
+          <a href="https://policies.google.com/terms?hl=en-US" className="text-gray-400 hover:underline">
             Terms of Service
           </a>{" "}
           apply.
