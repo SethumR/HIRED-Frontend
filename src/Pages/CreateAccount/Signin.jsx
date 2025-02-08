@@ -1,9 +1,21 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { motion } from "framer-motion"
 
 const SignIn = () => {
+  const navigate = useNavigate()
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    // Perform authentication logic here
+    console.log("Email:", email, "Password:", password)
+    navigate("/dashboard")
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white flex flex-col items-center justify-center px-4 py-8 mt-16">
       <motion.div
@@ -16,46 +28,57 @@ const SignIn = () => {
           Unlock Your Access
         </h1>
 
-        <div className="mb-6">
-          <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-300">
-            Email address
-          </label>
-          <input
-            id="email"
-            type="email"
-            placeholder="name@domain.com"
-            className="w-full bg-gray-700/50 border border-gray-600 rounded-lg p-3 text-white placeholder:text-gray-400 focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 ease-in-out"
-          />
-        </div>
+        {/* Sign-in Form */}
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
+            <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-300">
+              Email address
+            </label>
+            <input
+              id="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="name@domain.com"
+              required
+              className="w-full bg-gray-700/50 border border-gray-600 rounded-lg p-3 text-white placeholder:text-gray-400 focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 ease-in-out"
+            />
+          </div>
 
-        <div className="mb-6">
-        <label htmlFor="Password" className="block mb-2 text-sm font-medium text-gray-300">
-          Password
-        </label>
-        <input
-          id="Password"
-          type="Password"
-          placeholder="Abc@123"
-          className="w-full bg-gray-700/50 border border-gray-600 rounded-lg p-3 text-white placeholder:text-gray-400 focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 ease-in-out"
-        />
-      </div>
+          <div>
+            <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-300">
+              Password
+            </label>
+            <input
+              id="password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="••••••••"
+              required
+              className="w-full bg-gray-700/50 border border-gray-600 rounded-lg p-3 text-white placeholder:text-gray-400 focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-300 ease-in-out"
+            />
+          </div>
 
-        <motion.button
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.97 }}
-          className="w-full bg-gradient-to-r from-purple-500 to-pink-500 font-bold py-3 rounded-lg mb-6 hover:from-pink-500 hover:to-purple-500 transition-all duration-300 ease-in-out shadow-lg"
-        >
-          Next
-        </motion.button>
+          <motion.button
+            type="submit"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className="w-full bg-gradient-to-r from-purple-500 to-pink-500 font-bold py-3 rounded-lg hover:from-pink-500 hover:to-purple-500 transition-all duration-300 ease-in-out shadow-lg"
+          >
+            Next
+          </motion.button>
+        </form>
 
-        <div className="flex items-center gap-3 mb-6">
+        {/* Divider */}
+        <div className="flex items-center gap-3 my-6">
           <div className="h-px flex-1 bg-gray-600" />
           <span className="text-sm text-gray-400">or continue with</span>
           <div className="h-px flex-1 bg-gray-600" />
         </div>
 
-         {/* Social Buttons */}
-       <div className="space-y-4 mb-8">
+        {/* Social Login Buttons */}
+        <div className="space-y-4">
           {[
             { image: "https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png", text: "Login with Google" },
             { image: "https://cdn.freebiesupply.com/images/large/2x/apple-logo-white.png", text: "Login with Apple" }
@@ -72,12 +95,8 @@ const SignIn = () => {
           ))}
         </div>
 
-        <div className="flex items-center gap-3 mb-6">
-          <div className="h-px flex-1 bg-gray-700" />
-        </div>
-
-
-        <p className="text-center text-gray-400 text-sm">
+        {/* Sign-up Link */}
+        <p className="text-center text-gray-400 text-sm mt-6">
           Don't have an account?{" "}
           <a
             href="/signup"
@@ -87,7 +106,8 @@ const SignIn = () => {
           </a>
         </p>
 
-        <p className="mt-8 text-xs text-gray-500 text-center">
+        {/* Privacy Policy & Terms */}
+        <p className="mt-6 text-xs text-gray-500 text-center">
           This site is protected by reCAPTCHA and the Google{" "}
           <a href="/privacy" className="text-gray-400 hover:underline">
             Privacy Policy
@@ -104,4 +124,3 @@ const SignIn = () => {
 }
 
 export default SignIn
-
