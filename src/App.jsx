@@ -10,13 +10,14 @@ import 'aos/dist/aos.css';
 import Upgrade from './Pages/Upgrade';
 import SignIn from './Pages/CreateAccount/Signin';
 import Signup from './Pages/CreateAccount/SignupForm';
+import Candidate from './Pages/Dashboard/Candidate';
 
 const App = () => {
   return (
     <Router>
       <div className="bg-[#0a0b14] min-h-screen">
         <Navbar />
-
+        
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/aboutus" element={<AboutUs />} /> 
@@ -24,7 +25,7 @@ const App = () => {
           <Route path="/signin" element={<SignIn/>} /> 
           <Route path="/signup" element={<Signup/>} /> 
           <Route path="/upgrade" element={<Upgrade/>}/>
-
+          <Route path="/dashboard" element={<Candidate/>}/>          
         </Routes>
 
         <Footer />
