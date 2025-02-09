@@ -1,5 +1,3 @@
-"use client"
-
 import { Bell, ChevronRight, Settings } from "lucide-react"
 import Link from "next/link"
 
