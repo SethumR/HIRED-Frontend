@@ -1,141 +1,160 @@
-import React from "react";
-import { FiUser, FiFileText, FiClock } from "react-icons/fi";
-import { MdAssessment, MdTimer } from "react-icons/md";
-import { FaRegCalendarAlt, FaRegClock } from "react-icons/fa";
+import { Bell, ChevronRight, Settings } from "lucide-react"
 
-export default function Candidate() {
+function App() {
   return (
-    <div className="container mx-auto p-4 max-w-7xl  text-white">
-      {/* Interview prompt card & Profile Overview */}
-      <div className="grid grid-cols-1 lg:grid-cols-4 mt-36 mb-8 mx-auto">
-        <div className="lg:col-span-3 border border-gray-600 rounded-3xl p-4 w-full sm:w-[650px] lg:w-[840px] h-[250px] flex flex-col items-center justify-center">
-            <h2 className="text-2xl font-semibold mb-1">
-                Ready for your next interview?
-            </h2>
-            <p className="text-purple-100 mb-4">
-                Start a mock interview session now
-            </p>
-            <button className="bg-white text-purple-600 hover:bg-purple-50 px-3 py-1.5 rounded-lg font-semibold transition-all flex items-center hover:scale-105">
-                <span className="mr-2">▶</span> Start Interview
-            </button>
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <header className="flex items-center justify-between border-b bg-white px-6 py-4">
+        <div className="flex items-center gap-3">
+          <img
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/candidate%20dashboard%20UI-U3IZroEJ8Vl1XTpfa5al4ZLF57qr2u.png"
+            alt="Profile"
+            className="h-12 w-12 rounded-full"
+          />
+          <div>
+            <h2 className="font-semibold">Sarah Wilson</h2>
+            <p className="text-sm text-gray-600">Software Engineer</p>
+          </div>
         </div>
-
-        {/* Profile Overview */}
-        <div className="lg:col-span-1 bg-white text-black rounded-xl p-6 shadow-sm border w-full sm:w-[380px] h-[460px]">
-          <h3 className="text-xl font-semibold mb-6">Profile Overview</h3>
-          <div className="flex flex-col items-center mb-6">
-            <div className="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 text-xl font-semibold mb-4">
-              JD
-            </div>
-            <h4 className="text-xl font-semibold">John Doe</h4>
-            <p className="text-gray-600">Software Engineer</p>
-          </div>
-          <div className="space-y-4 mb-6">
-            <div className="flex justify-between">
-              <span className="text-gray-600">Completed Interviews</span>
-              <span className="font-semibold">12</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-gray-600">Average Score</span>
-              <span className="font-semibold">88%</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-gray-600">Total Practice Time</span>
-              <span className="font-semibold">8.5 hrs</span>
-            </div>
-          </div>
-          <button className="w-full text-purple-600 border border-purple-200 hover:bg-purple-50 px-4 py-2 rounded-lg font-semibold transition-all">
-            Edit Profile
+        <div className="flex items-center gap-4">
+          <button className="p-2 hover:bg-gray-100 rounded-full">
+            <Bell className="h-5 w-5" />
+          </button>
+          <button className="p-2 hover:bg-gray-100 rounded-full">
+            <Settings className="h-5 w-5" />
           </button>
         </div>
-      </div>
+      </header>
 
-      {/* Stats Section */}
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {[
-          {
-            title: "Total Interviews",
-            value: "12",
-            subtitle: "Last 30 days",
-            icon: <FiUser className="h-5 w-5 text-indigo-400" />,
-          },
-          {
-            title: "Average Score",
-            value: "85%",
-            subtitle: "All interviews",
-            icon: <MdAssessment className="h-5 w-5 text-indigo-400" />,
-          },
-          {
-            title: "Skills Improved",
-            value: "8",
-            subtitle: "Top skills",
-            icon: <FiFileText className="h-5 w-5 text-indigo-400" />,
-          },
-          {
-            title: "Practice Time",
-            value: "24h",
-            subtitle: "Total time",
-            icon: <MdTimer className="h-5 w-5 text-indigo-400" />,
-          },
-        ].map((item, index) => (
-          <div key={index} className="bg-white text-black shadow-md rounded-xl p-4 transition-all hover:bg-purple-50 hover:shadow-xl">
-            <div className="flex items-center justify-between pb-2">
-              <h3 className="text-sm font-medium text-gray-500">{item.title}</h3>
-              {item.icon}
-            </div>
-            <div>
-              <p className="text-2xl font-bold">{item.value}</p>
-              <p className="text-xs text-gray-400">{item.subtitle}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Recent Interviews Section */}
-      <div className="flex flex-col lg:flex-row gap-8 mt-8 max-w-full lg:max-w-[58rem]">
-        <div className="flex-1">
-          <div className="flex justify-between items-center mb-6">
-            <h3 className="text-xl font-semibold">Recent Interviews</h3>
-            <button className="text-purple-500 hover:underline">View all</button>
-          </div>
-          <div className="space-y-4">
-            {[
-              {
-                role: "Software Engineer",
-                date: "Mar 15, 2024",
-                duration: "45 min",
-                score: "85%",
-              },
-              {
-                role: "Product Manager",
-                date: "Mar 12, 2024",
-                duration: "30 min",
-                score: "92%",
-              },
-            ].map((interview, index) => (
-              <div key={index} className="bg-white text-black rounded-xl p-6 shadow-sm border transition-all hover:shadow-xl hover:bg-purple-50">
-                <div className="bg-purple-50 text-purple-600 text-sm px-3 py-1 rounded-full w-fit mb-3">
-                  {interview.role}
-                </div>
-                <h4 className="text-lg font-semibold mb-3">Mock Interview</h4>
-                <div className="flex items-center justify-between">
-                  <div className="flex gap-4 text-gray-600">
-                    <span className="flex items-center gap-1">
-                      <FaRegCalendarAlt className="w-4 h-4" />
-                      {interview.date}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <FaRegClock className="w-4 h-4" />
-                      {interview.duration}
-                    </span>
+      <main className="mx-auto max-w-7xl p-6">
+        <div className="grid gap-6 md:grid-cols-[2fr_1fr]">
+          <div className="space-y-6">
+            {/* Performance Overview */}
+            <section>
+              <h3 className="mb-4 text-xl font-semibold">Performance Overview</h3>
+              <div className="grid gap-4 md:grid-cols-3">
+                {["Technical", "Communication", "Confidence"].map((skill, index) => (
+                  <div key={skill} className="bg-white p-6 rounded-lg shadow">
+                    <div className="text-sm text-gray-600">{skill}</div>
+                    <div className="text-3xl font-bold">{[85, 92, 78][index]}%</div>
                   </div>
-                  <span className="text-lg font-semibold">{interview.score}</span>
-                </div>
+                ))}
               </div>
-            ))}
+            </section>
+
+            {/* Preparation Progress */}
+            <section>
+              <div className="mb-2 flex items-center justify-between">
+                <h4 className="text-sm font-medium">Preparation Progress</h4>
+                <span className="text-sm text-gray-600">75%</span>
+              </div>
+              <div className="bg-gray-200 rounded-full h-2">
+                <div className="bg-blue-600 h-2 rounded-full" style={{ width: "75%" }}></div>
+              </div>
+            </section>
+
+            {/* AI Feedback */}
+            <section>
+              <h3 className="mb-4 text-xl font-semibold">Latest AI Feedback</h3>
+              <div className="space-y-3">
+                {[
+                  "Structure your answers using the STAR method",
+                  "Provide more specific examples in technical responses",
+                  "Maintain consistent eye contact during video interviews",
+                ].map((feedback, index) => (
+                  <div key={index} className="flex items-start gap-3 rounded-lg border bg-white p-4">
+                    <div className="mt-1 h-4 w-4 rounded bg-blue-100" />
+                    <p>{feedback}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* Past Interviews */}
+            <section>
+              <h3 className="mb-4 text-xl font-semibold">Past Interviews</h3>
+              <div className="grid gap-4 md:grid-cols-2">
+                {[
+                  { company: "DataTech", date: "Feb 15", score: 88 },
+                  { company: "CloudSys", date: "Feb 10", score: 92 },
+                ].map((interview, index) => (
+                  <div key={index} className="bg-white rounded-lg shadow p-6 flex items-center justify-between">
+                    <div>
+                      <div className="font-medium">{interview.company}</div>
+                      <div className="text-sm text-gray-600">{interview.date}</div>
+                    </div>
+                    <div className="text-right">
+                      <div className="font-medium text-green-600">{interview.score}% Score</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </div>
+
+          <div className="space-y-6">
+            {/* Upcoming Interviews */}
+            <section>
+              <h3 className="mb-4 text-xl font-semibold">Upcoming Interviews</h3>
+              <div className="space-y-4">
+                {[
+                  { company: "TechCorp", role: "Senior Software Engineer", time: "Tomorrow, 2:00 PM", initials: "TC" },
+                  { company: "InnovateLabs", role: "Full Stack Developer", time: "Feb 28, 11:00 AM", initials: "IL" },
+                ].map((interview, index) => (
+                  <div key={index} className="bg-white rounded-lg shadow">
+                    <a href="#" className="flex items-center gap-4 p-4">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-black text-white">
+                        {interview.initials}
+                      </div>
+                      <div className="flex-1">
+                        <div className="font-medium">{interview.company}</div>
+                        <div className="text-sm text-gray-600">{interview.role}</div>
+                        <div className="text-sm text-gray-600">{interview.time}</div>
+                      </div>
+                      <ChevronRight className="h-5 w-5 text-gray-400" />
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* Mock Interview Button */}
+            <button className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300">
+              Start Mock Interview
+            </button>
+
+            {/* Recommended */}
+            <section>
+              <div className="mb-4 flex items-center justify-between">
+                <h3 className="text-xl font-semibold">Recommended</h3>
+                <a href="#" className="text-sm text-blue-600">
+                  View All
+                </a>
+              </div>
+              <div className="space-y-4">
+                {[
+                  { title: "System Design Interview Guide", type: "Article", icon: "📄" },
+                  { title: "Behavioral Questions Masterclass", type: "Video", icon: "🎥" },
+                ].map((item, index) => (
+                  <div key={index} className="bg-white rounded-lg shadow">
+                    <a href="#" className="flex items-center gap-4 p-4">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-lg border">{item.icon}</div>
+                      <div className="flex-1">
+                        <div className="font-medium">{item.title}</div>
+                        <div className="text-sm text-gray-600">{item.type}</div>
+                      </div>
+                      <ChevronRight className="h-5 w-5 text-gray-400" />
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </section>
           </div>
         </div>
-      </div>
+      </main>
     </div>
-  );
+  )
 }
+
+export default App
+
