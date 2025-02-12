@@ -12,6 +12,7 @@ import SignIn from './Pages/CreateAccount/Signin';
 import Signup from './Pages/CreateAccount/SignupForm';
 import Candidate from './Pages/Dashboard/Candidate';
 import EditProfile from './Pages/Dashboard/EditProfile';
+import Page from './Pages/CVUpload';
 
 const App = () => {
   return (
@@ -27,7 +28,8 @@ const App = () => {
           <Route path="/signup" element={<Signup/>} /> 
           <Route path="/upgrade" element={<Upgrade/>}/>
           <Route path="/dashboard" element={<Candidate/>}/>          
-          <Route path="/editprofile" element={<EditProfile/>}/>          
+          <Route path="/editprofile" element={<EditProfile/>}/>  
+          <Route path="/uploadcv" element={<Page/>}/>                  
         </Routes>
 
         <Footer />

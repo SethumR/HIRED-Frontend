@@ -1,14 +1,14 @@
-import { Bell, ChevronRight, Settings } from "lucide-react"
+import { Bell, ChevronRight, Settings } from "lucide-react";
 import { HiOutlineMicrophone } from "react-icons/hi"; 
 import { Star } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; // Importing useNavigate
 import { FaChartBar } from "react-icons/fa";
 import { LuMessageCircle } from "react-icons/lu";
 import { AiOutlineRobot, AiOutlineBulb } from 'react-icons/ai';
 import { VscRobot } from "react-icons/vsc";
 
 function App() {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();  // Using useNavigate hook for navigation
 
   const performanceData = [
     { skill: "Technical", score: 85, icon: <FaChartBar className="w-6 h-6 text-blue-500 " /> },
@@ -142,9 +142,21 @@ function App() {
             </section>
 
             {/* Mock Interview Button */}
-            <button className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300 flex items-center justify-center gap-4">
+            <button
+              onClick={() => navigate("/mockinterview")} // Navigate to Upload CV page
+              className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300 flex items-center justify-center gap-4"
+            >
               <HiOutlineMicrophone className="h-5 w-5" /> 
               Start Mock Interview
+            </button>
+
+            {/* Mock Interview Button */}
+            <button
+              onClick={() => navigate("/uploadcv")} // Navigate to Upload CV page
+              className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300 flex items-center justify-center gap-4"
+            >
+              <HiOutlineMicrophone className="h-5 w-5" /> 
+              Genarate the Scripts
             </button>
 
             {/* Recommended */}
@@ -181,4 +193,3 @@ function App() {
 }
 
 export default App
-
