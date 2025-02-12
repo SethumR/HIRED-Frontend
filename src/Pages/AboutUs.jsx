@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FaLinkedin, FaGithub, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { motion, useInView } from "framer-motion";
 
 export default function AboutUs() {
   const teamMembers = [
@@ -9,7 +10,7 @@ export default function AboutUs() {
       description: "2nd year undergraduate student at University of Westminster",
       linkedin: "https://linkedin.com",
       github: "https://github.com/SethumR",
-      image: "Sethum.png", 
+      image: "Sethum.png",
     },
     {
       name: "Sasindri Siriwardane",
@@ -17,7 +18,7 @@ export default function AboutUs() {
       description: "2nd year undergraduate student at University of Westminster",
       linkedin: "https://www.linkedin.com/in/sasindri-siriwardene-314320273/",
       github: "https://github.com/sasindri-siriwardene",
-      image: "Sasindri.png", 
+      image: "Sasindri.png",
     },
     {
       name: "Rehan Mandawala",
@@ -25,7 +26,7 @@ export default function AboutUs() {
       description: "2nd year undergraduate student at University of Westminster",
       linkedin: "https://www.linkedin.com/in/rehan-mandawala-504142266?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
       github: "https://github.com/rehan20221237",
-      image: "rehan.jpg", 
+      image: "rehan.jpg",
     },
     {
       name: "Kavindu Gunathilake",
@@ -33,7 +34,7 @@ export default function AboutUs() {
       description: "2nd year undergraduate student at University of Westminster",
       linkedin: "http://www.linkedin.com/in/kavindu-gunathilaka-86297b297",
       github: "https://github.com/kethaka2005",
-      image: "/placeholder.svg?height=400&width=400", 
+      image: "kethaka.jpg",
     },
     {
       name: "Nehan Karunarathna",
@@ -41,7 +42,7 @@ export default function AboutUs() {
       description: "2nd year undergraduate student at University of Westminster",
       linkedin: "https://www.linkedin.com/in/nehan-karunarathna-b80061301/",
       github: "https://github.com/nehan-karunarathna",
-      image: "nehan.jpg", 
+      image: "nehan.jpg",
     },
     {
       name: "Tilan Wishwajith",
@@ -49,7 +50,7 @@ export default function AboutUs() {
       description: "2nd year undergraduate student at University of Westminster",
       linkedin: "https://www.linkedin.com/in/tilan-wishwajith-381957320/",
       github: "https://github.com/Tilanwishwajith-ai",
-      image: "/tilan.jpg", 
+      image: "/tilan.jpg",
     },
   ];
 
@@ -67,8 +68,23 @@ export default function AboutUs() {
 
   const displayedImages = teamMembers.slice(currentIndex, currentIndex + 3);
 
+  const visionMissionRef = useRef(null);
+  const isInView = useInView(visionMissionRef, { once: true });
+
+  const fadeInAnimation = {
+    hidden: { opacity: 0, y: 100 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+  };
+
   return (
-    <div className="bg-[#0E1526]">
+    <div className="bg-[#0b0f1c]">
       {/* About Project Section */}
       <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8 mt-16">
         <div className="text-center mb-12">
@@ -144,7 +160,7 @@ export default function AboutUs() {
           {displayedImages.map((member, index) => (
             <div
               key={index}
-              className="bg-[#1d2638] rounded-lg p-8 shadow-xl w-[420px] h-[600px] flex flex-col transform transition-transform hover:scale-105 duration-300"
+              className="bg-[#1d2638] rounded-lg p-8 shadow-xl w-[420px] h-[550px] flex flex-col transform transition-transform hover:scale-105 duration-300"  // Adjusted height here
             >
               <div className="w-full h-[320px] mb-6">
                 <img
@@ -189,6 +205,34 @@ export default function AboutUs() {
           </button>
         </div>
       </div>
+
+      {/* Vision and Mission Section */}
+      <motion.div
+        ref={visionMissionRef}
+        className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8 text-center"
+        variants={fadeInAnimation}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+      >
+        <h2 className="text-4xl font-semibold text-white mb-8">Our Vision & Mission</h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <h3 className="text-3xl font-semibold text-white mb-4">Vision</h3>
+            <p className="text-xl text-slate-200">
+              To be the leading AI-powered platform that empowers individuals worldwide to confidently pursue and achieve their career aspirations.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-3xl font-semibold text-white mb-4">Mission</h3>
+            <p className="text-xl text-slate-200">
+              To revolutionize interview preparation by providing accessible, personalized, and innovative AI-driven tools that enhance communication skills, build confidence, and unlock career opportunities for all.
+            </p>
+          </div>
+        </div>
+      </motion.div>
+
       <br/><br/><br/>
     </div>
   );
