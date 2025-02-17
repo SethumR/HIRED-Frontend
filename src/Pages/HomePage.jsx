@@ -483,7 +483,7 @@ export default function HomePage() {
             {/* Interview List Image */}
             <div className="relative">
               <img
-                src=""
+                src="public/mockInterview.png"
                 alt="Interview list showing different job positions and their schedules"
                 className="rounded-xl w-full h-64 sm:h-80 lg:h-96 object-cover border border-purple-700 shadow-purple-900 shadow-lg"
               />
@@ -496,9 +496,9 @@ export default function HomePage() {
             {/* Interview List Image */}
             <div className="relative">
               <img
-                src=""
+                src="public/AI-Generated Feedback.png"
                 alt="Interview list showing different job positions and their schedules"
-                className="rounded-xl w-full h-64 sm:h-80 lg:h-96 object-cover border border-gray-300 shadow-slate-500 shadow-md"
+                className="rounded-xl w-full h-64 sm:h-80 lg:h-96 object-cover border border-purple-700 shadow-purple-900 shadow-lg"
               />
             </div>
 
@@ -549,7 +549,7 @@ export default function HomePage() {
             {/* Interview List Image */}
             <div className="relative">
               <img
-                src=""
+                src="mockInterview.png"
                 alt="Interview list showing different job positions and their schedules"
                 className="rounded-xl w-full h-64 sm:h-80 lg:h-96 object-cover border border-purple-700 shadow-purple-900 shadow-lg"
               />
@@ -562,7 +562,7 @@ export default function HomePage() {
             {/* Interview List Image */}
             <div className="relative">
               <img
-                src=""
+                src="public/AI-Generated Feedback.png"
                 alt="Interview list showing different job positions and their schedules"
                 className="rounded-xl w-full h-64 sm:h-80 lg:h-96 object-cover border  border-gray-300 shadow-slate-500 shadow-md"
               />
