@@ -65,7 +65,7 @@ export default function HomePage() {
     {
       icon: FaBrain,
       title: "Smart Interview Simulation",
-      description: "Our advanced AI bot is trained to conduct realistic mock interviews, simulating various scenarios and industries."
+      description: "Our advanced AI bot is trained to conduct realistic audio based  mock interviews, simulating various scenarios and industries to provide personalised experience."
     },
     {
       icon: FaPhoneAlt,
@@ -74,13 +74,13 @@ export default function HomePage() {
     },
     {
       icon: FaFileAlt,
-      title: "Personalized Script Customization",
-      description: "Craft personalized interview scripts tailored to specific roles and career goals. Empower users with relevant, role-specific preparation."
+      title: " Get Personalized Scripts",
+      description: "Upload your CV to generate a personalized script that helps you confidently introduce yourself in interviews."
     },
     {
       icon: FaMapMarkerAlt,
       title: "Practice Anytime, Anywhere",
-      description: "Access our platform anytime, on any device, allowing you to hone your skills at your own pace and convenience."
+      description: "Access our platform anytime, on any device, allowing you to improve your skills at your own pace and convenience."
     },
     {
       icon: FaBuilding,
@@ -90,7 +90,7 @@ export default function HomePage() {
     {
       icon: FaVolumeUp,
       title: "Resource for Continuous Learning",
-      description: "Access curated resources linked to feedback to refine skills, bridge knowledge gaps, and enhance learning."
+      description: " Get access to additional  resources linked to feedback to refine skills, bridge knowledge gaps, and enhance learning."
     }
   ];
 
@@ -98,23 +98,19 @@ export default function HomePage() {
     {
       icon: FaBrain,
       title: "Smart Interview Simulation",
-      description: "Our advanced AI bot is trained to conduct realistic mock interviews, simulating various scenarios and industries."
+      description: "Our AI-driven platform conducts structured, role-specific interviews, adapting to various industries to streamline candidate evaluations."
     },
     {
       icon: FaFileAlt,
       title: "Pre-record Interview Questions",
-      description: "Offer pre-recorded interview questions with model answers to facilitate standardized evaluations for recruiters and candidates."
+      description: "Offer pre-recorded interview questions with model answers to facilitate standardized evaluations for recruiters."
     },
     {
       icon: FaPhoneAlt,
-      title: "Automated interview Screening ",
-      description: "Recruiters can send pre-recorded automated, structured video interviews to candidates to streamline and optimize the initial screening process."
+      title: "Seamless Candidate Assessment ",
+      description: "Automatically generate and send interview links, allowing candidates to complete AI-driven assessments at their convenience."
     },
-    {
-      icon: FaMapMarkerAlt,
-      title: "Anytime, Anywhere, without limits",
-      description: "Access our platform anytime, on any device, allowing you to hone your skills at your own pace and convenience."
-    },
+    
     {
       icon: FaMapMarkerAlt,
       title: "Score-Based Candidate Filtering",
@@ -124,6 +120,10 @@ export default function HomePage() {
       icon: FaVolumeUp,
       title: "Performance Reports and  Metrics",
       description: "Generate detailed performance reports analyzing communication, technical proficiency, and role suitability, highlighting strengths and areas for improvement."
+    },{
+      icon: FaMapMarkerAlt,
+      title: "Effortless Hiring Workflow",
+      description: "Automate interview scheduling, evaluation, and feedback—reducing hiring time and improving decision-making accuracy."
     }
   ];
 
