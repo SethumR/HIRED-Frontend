@@ -1,11 +1,11 @@
-import React, { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import EmailStep from "./Emailsteps"
-import AccountStep from "./AccountStep"
-import OtpStep from "./OtpStep"
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import EmailStep from "./Emailsteps";
+import AccountStep from "./AccountStep";
+import OtpStep from "./OtpStep";
 
 const Signup = () => {
-  const [currentStep, setCurrentStep] = useState(1)
+  const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
     email: "",
     firstName: "",
@@ -13,56 +13,60 @@ const Signup = () => {
     phone: "",
     username: "",
     password: "",
+    Repassword: "",
     otp: ["", "", "", "", "", ""],
-  })
-  const [errors, setErrors] = useState({})
+  });
+  const [errors, setErrors] = useState({});
 
   const validateStep = () => {
-    const newErrors = {}
+    const newErrors = {};
     if (currentStep === 1) {
       if (!formData.email) {
-        newErrors.email = "Email is required"
+        newErrors.email = "Email is required";
       } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-        newErrors.email = "Please enter a valid email address"
+        newErrors.email = "Please enter a valid email address";
       }
     } else if (currentStep === 2) {
-      if (!formData.firstName) newErrors.firstName = "First name is required"
-      if (!formData.lastName) newErrors.lastName = "Last name is required"
-      if (!formData.phone) newErrors.phone = "Phone number is required"
-      if (!formData.username) newErrors.username = "Username is required"
-      if (!formData.password) newErrors.password = "Password is required"
+      if (!formData.firstName) newErrors.firstName = "First name is required";
+      if (!formData.lastName) newErrors.lastName = "Last name is required";
+      if (!formData.phone) newErrors.phone = "Phone number is required";
+      if (!formData.username) newErrors.username = "Username is required";
+      if (!formData.password) newErrors.password = "Password is required";
+      if (formData.password !== formData.Repassword) {
+        newErrors.Repassword = "Passwords do not match";
+      }
     } else if (currentStep === 3) {
       if (formData.otp.some((digit) => !digit))
-        newErrors.otp = "Please enter the complete OTP"
+        newErrors.otp = "Please enter the complete OTP";
     }
-    return newErrors
-  }
+    return newErrors;
+  };
 
   const handleNext = () => {
-    const newErrors = validateStep()
+    const newErrors = validateStep();
     if (Object.keys(newErrors).length === 0) {
-      setErrors({})
-      setCurrentStep((prev) => prev + 1)
+      setErrors({});
+      setCurrentStep((prev) => prev + 1);
     } else {
-      setErrors(newErrors)
+      setErrors(newErrors);
     }
-  }
+  };
 
   const handlePrevious = () => {
-    setCurrentStep((prev) => prev - 1)
-  }
+    setCurrentStep((prev) => prev - 1);
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    const newErrors = validateStep()
+    e.preventDefault();
+    const newErrors = validateStep();
     if (Object.keys(newErrors).length === 0) {
-      setErrors({})
-      console.log("Form submitted:", formData)
-      alert("Account successfully created!")
+      setErrors({});
+      console.log("Form submitted:", formData);
+      alert("Account successfully created!");
     } else {
-      setErrors(newErrors)
+      setErrors(newErrors);
     }
-  }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white flex items-center justify-center px-4 py-12 mt-16">
@@ -114,7 +118,7 @@ const Signup = () => {
         </div>
       </motion.div>
     </div>
-  )
-}
+  );
+};
 
-export default Signup
+export default Signup;
