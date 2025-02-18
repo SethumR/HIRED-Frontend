@@ -156,6 +156,25 @@ const AccountStep = ({
         </AnimatePresence>
       </div>
 
+      <div>
+        <label htmlFor="Repassword" className="block text-sm font-medium text-gray-300 mb-1">
+          Reconfirm Password
+        </label>
+        <input
+          type="Repassword"
+          id="Repassword"
+          className={inputClasses}
+          value={formData.Repassword}
+          onChange={(e) =>
+            setFormData({ ...formData, Repassword: e.target.value })
+          }
+          placeholder="••••••••"
+        />
+        <AnimatePresence>
+          {errors.Repassword && <ErrorMessage message={errors.Repassword} />}
+        </AnimatePresence>
+      </div>
+
       <div className="flex justify-end gap-4">
         <motion.button
           whileHover={{ scale: 1.05 }}
