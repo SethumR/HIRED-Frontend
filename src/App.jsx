@@ -10,6 +10,7 @@ import 'aos/dist/aos.css';
 import Upgrade from './Pages/Upgrade';
 import SignIn from './Pages/CreateAccount/Signin';
 import Signup from './Pages/CreateAccount/SignupForm';
+import SignupC from './Pages/CreateAccountCompany/SignupForm';
 import Candidate from './Pages/Dashboard/Candidate';
 
 const App = () => {
@@ -25,7 +26,8 @@ const App = () => {
           <Route path="/signin" element={<SignIn/>} /> 
           <Route path="/signup" element={<Signup/>} /> 
           <Route path="/upgrade" element={<Upgrade/>}/>
-          <Route path="/dashboard" element={<Candidate/>}/>          
+          <Route path="/dashboard" element={<Candidate/>}/>  
+          <Route path="/signupcompany" element={<SignupC/>}/>        
         </Routes>
 
         <Footer />
