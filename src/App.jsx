@@ -11,9 +11,9 @@ import Upgrade from './Pages/Upgrade';
 import SignIn from './Pages/CreateAccount/Signin';
 import Signup from './Pages/CreateAccount/SignupForm';
 import SignupC from './Pages/CreateAccountCompany/SignupForm';
-import Candidate from './Pages/Dashboard/Candidate';
-import EditProfile from './Pages/Dashboard/EditProfile';
 import Page from './Pages/CVUpload';
+import Dashboard from './Pages/Dashboard/CandidateDashbord/Candidate';
+import EditProfile from './Pages/Dashboard/CandidateDashbord/EditProfile';
 
 const App = () => {
   return (
@@ -30,8 +30,8 @@ const App = () => {
           <Route path="/upgrade" element={<Upgrade/>}/>
           <Route path="/dashboard" element={<Candidate/>}/>  
           <Route path="/signupcompany" element={<SignupC/>}/>  
-          <Route path="/dashboard" element={<Candidate/>}/>          
-          <Route path="/editprofile" element={<EditProfile/>}/>  
+          <Route path="/candidatedashboard" element={<Dashboard/>}/>  
+          <Route path="/candidateeditprofile" element={<EditProfile/>}/>  
           <Route path="/uploadcv" element={<Page/>}/>                  
         </Routes>
 
