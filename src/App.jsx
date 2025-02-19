@@ -10,10 +10,10 @@ import 'aos/dist/aos.css';
 import Upgrade from './Pages/Upgrade';
 import SignIn from './Pages/CreateAccount/Signin';
 import Signup from './Pages/CreateAccount/SignupForm';
-import SignupC from './Pages/CreateAccountCompany/SignupForm';
 import Page from './Pages/CVUpload';
-import Dashboard from './Pages/Dashboard/CandidateDashbord/Candidate';
-import EditProfile from './Pages/Dashboard/CandidateDashbord/EditProfile';
+import Dashboard from './Pages/Dashboard/Candidate/CandidateDash';
+import EditProfile from './Pages/Dashboard/Candidate/EditProfile';
+import DashboardPage from './Pages/Dashboard/Company/CompanyDash';
 
 const App = () => {
   return (
@@ -28,11 +28,10 @@ const App = () => {
           <Route path="/signin" element={<SignIn/>} /> 
           <Route path="/signup" element={<Signup/>} /> 
           <Route path="/upgrade" element={<Upgrade/>}/>
-          <Route path="/dashboard" element={<Candidate/>}/>  
-          <Route path="/signupcompany" element={<SignupC/>}/>  
-          <Route path="/candidatedashboard" element={<Dashboard/>}/>  
-          <Route path="/candidateeditprofile" element={<EditProfile/>}/>  
-          <Route path="/uploadcv" element={<Page/>}/>                  
+          <Route path="/dashboard" element={<Dashboard/>}/>          
+          <Route path="/editprofile" element={<EditProfile/>}/>  
+          <Route path="/uploadcv" element={<Page/>}/>   
+          <Route path="/dashboard" element={<DashboardPage/>}/> 
         </Routes>
 
         <Footer />
