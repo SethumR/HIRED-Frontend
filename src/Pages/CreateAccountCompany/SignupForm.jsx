@@ -8,8 +8,8 @@ const Signup = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
     email: "",
-    firstName: "",
-    lastName: "",
+    CompanyName: "",
+    CompanyAddress: "",
     phone: "",
     username: "",
     password: "",
@@ -27,8 +27,8 @@ const Signup = () => {
         newErrors.email = "Please enter a valid email address";
       }
     } else if (currentStep === 2) {
-      if (!formData.firstName) newErrors.firstName = "First name is required";
-      if (!formData.lastName) newErrors.lastName = "Last name is required";
+      if (!formData.CompanyName) newErrors.CompanyName = "Company name is required";
+      if (!formData.CompanyAddress) newErrors.CompanyAddress = "Company address is required";
       if (!formData.phone) newErrors.phone = "Phone number is required";
       if (!formData.username) newErrors.username = "Username is required";
       if (!formData.password) newErrors.password = "Password is required";

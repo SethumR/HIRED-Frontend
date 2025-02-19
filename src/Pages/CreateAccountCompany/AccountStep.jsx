@@ -52,41 +52,41 @@ const AccountStep = ({
         </div>
 
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-4">
         <div>
-          <label htmlFor="firstName" className="block text-sm font-medium text-gray-300 mb-1 ">
-            First name
+          <label htmlFor="CompanyName" className="block text-sm font-medium text-gray-300 mb-1 ">
+        Company name
           </label>
           <input
             type="text"
-            id="firstName"
+            id="CompanyName"
             className={inputClasses}
-            value={formData.firstName}
+            value={formData.CompanyName}
             onChange={(e) =>
-              setFormData({ ...formData, firstName: e.target.value })
+              setFormData({ ...formData, CompanyName: e.target.value })
             }
-            placeholder="John"
+            placeholder="hired Solutions"
           />
           <AnimatePresence>
-            {errors.firstName && <ErrorMessage message={errors.firstName} />}
+            {errors.CompanyName && <ErrorMessage message={errors.CompanyName} />}
           </AnimatePresence>
         </div>
         <div>
-          <label htmlFor="lastName" className="block text-sm font-medium text-gray-300 mb-1">
-            Last name
+          <label htmlFor="CompanyAddress" className="block text-sm font-medium text-gray-300 mb-1">
+            Company Address
           </label>
           <input
             type="text"
-            id="lastName"
+            id="CompanyAddress"
             className={inputClasses}
-            value={formData.lastName}
+            value={formData.CompanyAddress}
             onChange={(e) =>
-              setFormData({ ...formData, lastName: e.target.value })
+              setFormData({ ...formData, CompanyAddress: e.target.value })
             }
-            placeholder="Doe"
+            placeholder="Colombo,Sri Lanka"
           />
           <AnimatePresence>
-            {errors.lastName && <ErrorMessage message={errors.lastName} />}
+            {errors.CompanyAddress && <ErrorMessage message={errors.CompanyAddress} />}
           </AnimatePresence>
         </div>
       </div>
