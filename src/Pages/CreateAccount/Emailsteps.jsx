@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
-import GitHubLogin from 'react-github-login'; 
 import { FaGithub } from "react-icons/fa";
 
 const ErrorMessage = ({ message }) => (
