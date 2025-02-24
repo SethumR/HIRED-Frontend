@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import { FaGithub } from "react-icons/fa";
+import GitHubLogin from 'react-github-login';
+
 
 const ErrorMessage = ({ message }) => (
   <motion.p
