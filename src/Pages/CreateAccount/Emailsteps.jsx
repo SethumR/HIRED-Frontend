@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import GitHubLogin from 'react-github-login'; 
 import { FaGithub } from "react-icons/fa";
-import GitHubLogin from 'react-github-login';
 
 
 const ErrorMessage = ({ message }) => (
