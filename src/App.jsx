@@ -14,6 +14,8 @@ import Page from './Pages/CVUpload';
 import Dashboard from './Pages/Dashboard/Candidate/CandidateDash';
 import EditProfile from './Pages/Dashboard/Candidate/EditProfile';
 import DashboardPage from './Pages/Dashboard/Company/CompanyDash';
+import SignupC from './Pages/CreateAccountCompany/SignupForm';
+
 
 const App = () => {
   return (
@@ -31,8 +33,9 @@ const App = () => {
           <Route path="/dashboard" element={<Dashboard/>}/>          
           <Route path="/editprofile" element={<EditProfile/>}/>  
           <Route path="/uploadcv" element={<Page/>}/>   
-          <Route path="/dashboard" element={<DashboardPage/>}/> 
-        </Routes>
+          <Route path="/dashboard" element={<DashboardPage/>}/>
+          <Route path="/signupcompany" element={<SignupC/>}/>
+          </Routes>
 
         <Footer />
       </div>
