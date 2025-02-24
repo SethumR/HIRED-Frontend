@@ -3,8 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import GitHubLogin from 'react-github-login'; 
 import { FaGithub } from "react-icons/fa";
-import GitHubLogin from 'react-github-login';
-
 
 const ErrorMessage = ({ message }) => (
   <motion.p
@@ -20,23 +18,17 @@ const ErrorMessage = ({ message }) => (
 const EmailStep = ({ email, setEmail, error, handleNext }) => {
   const [isHoveringGoogle, setIsHoveringGoogle] = useState(false);
   const [isHoveringGithub, setIsHoveringGithub] = useState(false);
-  const [googleResponse, setGoogleResponse] = useState(null); // Add missing state initialization
 
   const handleGoogleSuccess = (response) => {
     console.log("Google Token:", response.credential);
-    setGoogleResponse(response); // Correct the function call
+    setGoogleResponse(response);
 
     fetch("http://localhost:8000/auth/google", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ token: response.credential }),
     })
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Method Not Allowed");
-        }
-        return res.json();
-      })
+      .then((res) => res.json())
       .then((data) => {
         if (data.message === "Login successful") {
           alert("Login successful! Welcome, " + data.user.name);
@@ -56,14 +48,9 @@ const EmailStep = ({ email, setEmail, error, handleNext }) => {
     fetch("http://localhost:8000/auth/github", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ code: response.code }), // Correct the key to 'code'
+      body: JSON.stringify({ token: response.code }),
     })
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Method Not Allowed");
-        }
-        return res.json();
-      })
+      .then((res) => res.json())
       .then((data) => {
         if (data.message === "Login successful") {
           alert("Login successful! Welcome, " + data.user.name);
@@ -156,7 +143,6 @@ const EmailStep = ({ email, setEmail, error, handleNext }) => {
                 clientId="Ov23liujKfeX3V2GnVZs"
                 onSuccess={handleGitHubLogin}
                 onFailure={(error) => console.error(error)}
-                redirectUri="http://localhost:8000/auth/github" // Ensure this matches your GitHub OAuth app settings
                 className="w-full py-2 px-4 flex items-center justify-center relative bg-white border border-gray-200 rounded-lg text-gray-800 font-medium text-sm shadow-sm hover:shadow-md transition-all duration-300"
               >
                 <FaGithub className="absolute left-3 w-5 h-5" />
