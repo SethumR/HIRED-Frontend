@@ -8,12 +8,18 @@ const SignIn = () => {
   const navigate = useNavigate()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [error, setError] = useState("")
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Perform authentication logic here
-    console.log("Email:", email, "Password:", password)
-    navigate("/dashboard")
+
+    // Simulated authentication logic
+    if (email === "test@domain.com" && password === "password123") {
+      console.log("Login Successful:", email)
+      navigate("/companydashboard") // Navigate to Dashboard on success
+    } else {
+      setError("Invalid email or password") // Display error message
+    }
   }
 
   return (
@@ -27,6 +33,11 @@ const SignIn = () => {
         <h1 className="text-3xl font-bold text-center mb-8 bg-gradient-to-r from-purple-400 to-pink-400 text-transparent bg-clip-text">
           Unlock Your Access
         </h1>
+
+        {/* Display Error Message */}
+        {error && (
+          <p className="text-red-500 text-sm text-center mb-4">{error}</p>
+        )}
 
         {/* Sign-in Form */}
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -66,7 +77,7 @@ const SignIn = () => {
             whileTap={{ scale: 0.97 }}
             className="w-full bg-gradient-to-r from-purple-500 to-pink-500 font-bold py-3 rounded-lg hover:from-pink-500 hover:to-purple-500 transition-all duration-300 ease-in-out shadow-lg"
           >
-            Next
+            Sign In
           </motion.button>
         </form>
 
@@ -98,24 +109,30 @@ const SignIn = () => {
         {/* Sign-up Link */}
         <p className="text-center text-gray-400 text-sm mt-6">
           Don't have an account?{" "}
-          <a
-            href="/signup"
+          <button
+            onClick={() => navigate("/signup")}
             className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 hover:underline"
           >
             Sign Up Here
-          </a>
+          </button>
         </p>
 
         {/* Privacy Policy & Terms */}
         <p className="mt-6 text-xs text-gray-500 text-center">
           This site is protected by reCAPTCHA and the Google{" "}
-          <a href="/privacy" className="text-gray-400 hover:underline">
+          <button
+            onClick={() => navigate("/privacy")}
+            className="text-gray-400 hover:underline"
+          >
             Privacy Policy
-          </a>{" "}
+          </button>{" "}
           and{" "}
-          <a href="/terms" className="text-gray-400 hover:underline">
+          <button
+            onClick={() => navigate("/terms")}
+            className="text-gray-400 hover:underline"
+          >
             Terms of Service
-          </a>{" "}
+          </button>{" "}
           apply.
         </p>
       </motion.div>
