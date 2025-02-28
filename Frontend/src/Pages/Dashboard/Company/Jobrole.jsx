@@ -1,59 +1,22 @@
-"use client";
-
 import { useState, useEffect } from "react";
-import Link from "next/link";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm, useFieldArray } from "react-hook-form";
-import * as z from "zod";
-import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { toast } from "@/components/ui/use-toast";
-import { Building2, ArrowLeft } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Link } from "react-router-dom";
+import { FaArrowLeft, FaSpinner, FaCheck, FaTrash, FaPlus } from "react-icons/fa";
 
-// Zod schema for job role
-const jobRoleSchema = z.object({
-  title: z.string().min(2, {
-    message: "Job title must be at least 2 characters.",
-  }),
-  interviewType: z.enum(["behavioral", "technical", "hybrid"]),
-  experienceLevel: z.enum(["entry", "mid", "senior"]),
-  questions: z
-    .array(
-      z.object({
-        question: z.string().min(5, "Question must be at least 5 characters."),
-        expectedAnswer: z.string().min(5, "Expected answer must be at least 5 characters."),
-      })
-    )
-    .min(1, "At least one question is required."),
-});
-
-// Define job roles
 const jobRoles = ["Software Engineer", "Data Scientist", "Product Manager", "UX Designer", "Marketing Specialist"];
+const interviewTypes = ["Technical", "Behavioral", "System Design", "Case Study", "Mixed"];
+const experienceLevels = ["Entry Level", "Mid Level", "Senior", "Lead", "Principal"];
 
 export default function JobRolesSetupPage() {
   const [step, setStep] = useState(1);
   const [interviewLink, setInterviewLink] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
-
-  // Use React Hook Form
-  const form = useForm({
-    resolver: zodResolver(jobRoleSchema),
-    defaultValues: {
-      title: "",
-      interviewType: "behavioral",
-      experienceLevel: "mid",
-      questions: [{ question: "", expectedAnswer: "" }],
-    },
+  const [formData, setFormData] = useState({
+    title: "",
+    interviewType: "",
+    experienceLevel: "",
+    questions: [{ question: "", answer: "" }],
   });
 
-  const { fields, append, remove } = useFieldArray({
-    control: form.control,
-    name: "questions",
-  });
-
-  // Handle step change and interview link generation
   useEffect(() => {
     if (step === 3) {
       setIsGenerating(true);
@@ -65,82 +28,128 @@ export default function JobRolesSetupPage() {
     }
   }, [step]);
 
-  function onSubmit(data) {
-    toast({
-      title: "Interview Created",
-      description: "Your AI-powered interview has been set up successfully.",
-    });
-    console.log(data);
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  }
+
+  function handleQuestionChange(index, field, value) {
+    const newQuestions = [...formData.questions];
+    newQuestions[index][field] = value;
+    setFormData((prev) => ({ ...prev, questions: newQuestions }));
+  }
+
+  function addQuestion() {
+    setFormData((prev) => ({ ...prev, questions: [...prev.questions, { question: "", answer: "" }] }));
+  }
+
+  function removeQuestion(index) {
+    const newQuestions = formData.questions.filter((_, i) => i !== index);
+    setFormData((prev) => ({ ...prev, questions: newQuestions }));
+  }
+
+  function handlePrevious() {
+    if (step > 1) setStep(step - 1);
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50">
-      <header className="sticky top-0 z-50 w-full border-b bg-white">
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <Building2 className="h-6 w-6 text-blue-600" />
-            <span className="text-xl font-bold">InterviewAI</span>
-          </div>
-          <nav className="flex items-center space-x-6">
-            <Link className="text-sm font-medium hover:text-blue-600" href="/">
-              <ArrowLeft className="h-4 w-4 inline-block mr-1" />
-              Back to Dashboard
-            </Link>
-          </nav>
+    <div className="flex flex-col min-h-screen bg-[#0b0f1c] p-6">
+      <main className="flex-1 container pt-36 pb-12 px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-3xl font-bold text-white">Job Role & Interview Setup</h1>
+          <Link to="/DashboardPage" className="flex items-center px-4 py-2 rounded bg-gray-800 text-purple-400 hover:text-purple-300 transition-colors">
+            <FaArrowLeft className="mr-2" /> Back to Dashboard
+          </Link>
         </div>
-      </header>
-      <main className="flex-1 container py-6">
-        <h1 className="text-3xl font-bold mb-6">Job Role & Interview Setup</h1>
-        <div className="mb-6">
-          <nav className="flex space-x-4">
-            {[1, 2, 3].map((s) => (
-              <Button key={s} variant={s === step ? "default" : "outline"} onClick={() => setStep(s)} disabled={s > step}>
-                Step {s}
-              </Button>
-            ))}
-          </nav>
+
+        <div className="mb-8 flex space-x-4">
+          {[1, 2, 3].map((s) => (
+            <button key={s} className={`px-6 py-3 rounded-lg flex-1 transition-all ${s === step ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'}`} onClick={() => setStep(s)}>
+              Step {s}
+              <span className="block text-sm mt-1 opacity-75">{s === 1 ? 'Basic Info' : s === 2 ? 'Questions' : 'Review'}</span>
+            </button>
+          ))}
         </div>
+
         {step === 1 && (
-          <Card>
-            <CardHeader>
-              <CardTitle>Step 1: Define Job Role & Interview Type</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(() => setStep(2))} className="space-y-4">
-                  <FormField
-                    control={form.control}
-                    name="title"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Job Role</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
-                          <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select a job role" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent>
-                            {jobRoles.map((role) => (
-                              <SelectItem key={role} value={role}>
-                                {role}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <Button type="submit" className="w-full">
-                    Next
-                  </Button>
-                </form>
-              </Form>
-            </CardContent>
-          </Card>
+          <div className="border border-gray-800 p-8 rounded-lg bg-gray-900 shadow-xl">
+            <h2 className="text-2xl font-semibold text-white mb-6">Step 1: Define Interview Parameters</h2>
+            <label className="block text-white mb-2">Job Role</label>
+            <select name="title" value={formData.title} onChange={handleChange} className="w-full p-2 mb-4 rounded bg-gray-800 text-white">
+              <option value="">Select a role</option>
+              {jobRoles.map((role) => (<option key={role} value={role}>{role}</option>))}
+            </select>
+
+            <label className="block text-white mb-2">Interview Type</label>
+            <select name="interviewType" value={formData.interviewType} onChange={handleChange} className="w-full p-2 mb-4 rounded bg-gray-800 text-white">
+              <option value="">Select interview type</option>
+              {interviewTypes.map((type) => (<option key={type} value={type}>{type}</option>))}
+            </select>
+
+            <label className="block text-white mb-2">Experience Level</label>
+            <select name="experienceLevel" value={formData.experienceLevel} onChange={handleChange} className="w-full p-2 mb-4 rounded bg-gray-800 text-white">
+              <option value="">Select experience level</option>
+              {experienceLevels.map((level) => (<option key={level} value={level}>{level}</option>))}
+            </select>
+            
+            <button onClick={() => setStep(2)} className="mt-4 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600">Next</button>
+          </div>
+        )}
+
+        {step === 2 && (
+          <div className="border border-gray-800 p-8 rounded-lg bg-gray-900 shadow-xl">
+            <h2 className="text-2xl font-semibold text-white mb-6">Step 2: Define Interview Questions</h2>
+            {formData.questions.map((q, index) => (
+              <div key={index} className="mb-4">
+                <input type="text" placeholder="Question" value={q.question} onChange={(e) => handleQuestionChange(index, "question", e.target.value)} className="w-full p-2 mb-2 rounded bg-gray-800 text-white" />
+                <textarea placeholder="Answer" value={q.answer} onChange={(e) => handleQuestionChange(index, "answer", e.target.value)} className="w-full p-2 rounded bg-gray-800 text-white"></textarea>
+                <button onClick={() => removeQuestion(index)} className="mt-2 text-red-400 hover:text-red-300"><FaTrash /></button>
+              </div>
+            ))}
+            <button onClick={addQuestion} className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 flex items-center"><FaPlus className="mr-2" /> Add Question</button>
+            <div className="flex space-x-4 mt-4">
+              <button onClick={handlePrevious} className="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600">Previous</button>
+              <button onClick={() => setStep(3)} className="px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600">Next</button>
+            </div>
+          </div>
+        )}
+
+{step === 3 && (
+          <div className="border border-gray-800 p-8 rounded-lg bg-gray-900 shadow-xl">
+            <h2 className="text-2xl font-semibold text-white mb-6">Step 3: Review & Generate Interview</h2>
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="p-4 border border-gray-800 rounded-lg">
+                  <h3 className="text-lg font-medium text-gray-300 mb-2">Interview Details</h3>
+                  <p className="text-white">Role: {formData.title}</p>
+                  <p className="text-white">Type: {formData.interviewType}</p>
+                  <p className="text-white">Level: {formData.experienceLevel}</p>
+                </div>
+                <div className="p-4 border border-gray-800 rounded-lg">
+                  <h3 className="text-lg font-medium text-gray-300 mb-2">Questions</h3>
+                  <p className="text-white">{formData.questions.length} questions defined</p>
+                </div>
+              </div>
+              {isGenerating ? (
+                <div className="text-center py-8">
+                  <FaSpinner className="animate-spin text-purple-500 text-4xl mx-auto mb-4" />
+                  <p className="text-gray-300">Generating your interview setup...</p>
+                </div>
+              ) : interviewLink ? (
+                <div className="text-center py-8 space-y-4">
+                  <FaCheck className="text-green-500 text-4xl mx-auto" />
+                  <p className="text-white">Your interview has been generated!</p>
+                  <a href={interviewLink} className="block w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white p-4 rounded-lg font-medium hover:from-purple-600 hover:to-pink-600 transition-all shadow-lg">Start Interview</a>
+                </div>
+              ) : null}
+            </div>
+            <div className="flex space-x-4 mt-4">
+              <button onClick={handlePrevious} className="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600">Previous</button>
+            </div>
+          </div>
         )}
       </main>
     </div>
   );
 }
+

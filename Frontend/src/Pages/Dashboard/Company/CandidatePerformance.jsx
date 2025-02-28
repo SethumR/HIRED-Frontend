@@ -1,16 +1,6 @@
-"use client"
-
-import { useState } from "react"
-import { useRouter } from "next/navigation"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Progress } from "@/components/ui/progress"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Slider } from "@/components/ui/slider"
-import { ArrowLeft, Download, Play, Pause } from "lucide-react"
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts"
+import { useState } from "react";
+import { FiArrowLeft, FiDownload, FiPlay, FiPause } from "react-icons/fi";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 
 // Mock data for demonstration
 const candidates = [
@@ -72,228 +62,248 @@ const candidates = [
       },
     ],
   },
-]
+];
 
 const performanceData = [
   { name: "Technical", John: 90, Jane: 92 },
   { name: "Communication", John: 80, Jane: 85 },
   { name: "Confidence", John: 85, Jane: 88 },
   { name: "Problem Solving", John: 85, Jane: 87 },
-]
+];
 
 export default function CandidatePerformancePage() {
-  const [selectedCandidate, setSelectedCandidate] = useState(candidates[0])
-  const [isPlaying, setIsPlaying] = useState(false)
-  const [audioProgress, setAudioProgress] = useState(0)
-  const router = useRouter()
+  const [selectedCandidate, setSelectedCandidate] = useState(candidates[0]);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [audioProgress, setAudioProgress] = useState(0);
 
   const handleCandidateChange = (candidateId) => {
-    const candidate = candidates.find((c) => c.id === Number.parseInt(candidateId))
+    const candidate = candidates.find((c) => c.id === parseInt(candidateId));
     if (candidate) {
-      setSelectedCandidate(candidate)
+      setSelectedCandidate(candidate);
     }
-  }
+  };
 
   const handleAudioPlayback = () => {
-    setIsPlaying(!isPlaying)
-    // Simulating audio progress
+    setIsPlaying(!isPlaying);
     if (!isPlaying) {
       const interval = setInterval(() => {
         setAudioProgress((prev) => {
           if (prev >= 100) {
-            clearInterval(interval)
-            setIsPlaying(false)
-            return 0
+            clearInterval(interval);
+            setIsPlaying(false);
+            return 0;
           }
-          return prev + 1
-        })
-      }, 100)
+          return prev + 1;
+        });
+      }, 100);
     }
-  }
+  };
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50">
-      <header className="sticky top-0 z-50 w-full border-b bg-white">
-        <div className="container flex h-16 items-center justify-between">
+    <div className="flex flex-col min-h-screen bg-[#0b0f1c]">
+      <main className="flex-1 container pt-36 pb-12 px-4 sm:px-6 lg:px-8">
+        {/* Page Title and Navigation Buttons */}
+        <div className="flex justify-between items-center mb-6">
+          <h1 className="text-3xl font-bold text-white">Candidate Performance & Reports</h1>
           <div className="flex items-center space-x-4">
-            <Button variant="ghost" onClick={() => router.push("/")}>
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Dashboard
-            </Button>
+            <select
+              className="px-4 py-2 border border-gray-800 rounded-lg bg-[#161a26] text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+              onChange={(e) => handleCandidateChange(e.target.value)}
+            >
+              {candidates.map((candidate) => (
+                <option key={candidate.id} value={candidate.id.toString()}>
+                  {candidate.name}
+                </option>
+              ))}
+            </select>
+            <button className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:from-pink-500 hover:to-purple-500">
+              <FiDownload className="h-4 w-4" />
+              <span>Export Report</span>
+            </button>
+            <button
+              className="flex items-center space-x-2 px-4 py-2 bg-[#161a26] text-gray-300 rounded-lg hover:bg-gray-800 border border-gray-800"
+              onClick={() => window.history.back()}
+            >
+              <FiArrowLeft className="h-4 w-4" />
+              <span>Back</span>
+            </button>
           </div>
-          <nav className="flex items-center space-x-4">
-            <Select onValueChange={handleCandidateChange}>
-              <SelectTrigger className="w-[200px]">
-                <SelectValue placeholder="Select Candidate" />
-              </SelectTrigger>
-              <SelectContent>
-                {candidates.map((candidate) => (
-                  <SelectItem key={candidate.id} value={candidate.id.toString()}>
-                    {candidate.name}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-            <Button>
-              <Download className="mr-2 h-4 w-4" />
-              Export Report
-            </Button>
-          </nav>
         </div>
-      </header>
-      <main className="flex-1 container py-6">
-        <h1 className="text-3xl font-bold mb-6">Candidate Performance & Reports</h1>
+
+        {/* Candidate Details and Performance Chart */}
         <div className="grid gap-6 md:grid-cols-2">
-          <Card>
-            <CardHeader>
-              <CardTitle>Performance Summary</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-2">
-                <h2 className="text-2xl font-bold">{selectedCandidate.name}</h2>
-                <p className="text-muted-foreground">
-                  {selectedCandidate.role} | Interview Date: {selectedCandidate.date}
-                </p>
-                <div className="flex items-center space-x-2">
-                  <span className="text-4xl font-bold">{selectedCandidate.overallScore}%</span>
-                  <span className="text-muted-foreground">Overall Score</span>
-                </div>
+          <div className="bg-[#161a26] rounded-lg shadow p-6 border border-gray-800">
+            <h2 className="text-2xl font-bold mb-4 text-white">{selectedCandidate.name}</h2>
+            <p className="text-gray-300 mb-4">
+              {selectedCandidate.role} | Interview Date: {selectedCandidate.date}
+            </p>
+            <div className="flex items-center space-x-4 mb-6">
+              <span className="text-4xl font-bold text-white">{selectedCandidate.overallScore}%</span>
+              <span className="text-gray-300">Overall Score</span>
+            </div>
+            <div className="space-y-4">
+              <div className="flex justify-between text-gray-300">
+                <span>Technical</span>
+                <span>{selectedCandidate.technicalScore}%</span>
               </div>
-              <div className="mt-4 space-y-2">
-                <div className="flex justify-between">
-                  <span>Technical</span>
-                  <span>{selectedCandidate.technicalScore}%</span>
-                </div>
-                <Progress value={selectedCandidate.technicalScore} />
-                <div className="flex justify-between">
-                  <span>Communication</span>
-                  <span>{selectedCandidate.communicationScore}%</span>
-                </div>
-                <Progress value={selectedCandidate.communicationScore} />
-                <div className="flex justify-between">
-                  <span>Confidence</span>
-                  <span>{selectedCandidate.confidenceScore}%</span>
-                </div>
-                <Progress value={selectedCandidate.confidenceScore} />
-                <div className="flex justify-between">
-                  <span>Problem Solving</span>
-                  <span>{selectedCandidate.problemSolvingScore}%</span>
-                </div>
-                <Progress value={selectedCandidate.problemSolvingScore} />
+              <div className="h-2 bg-gray-800 rounded-full">
+                <div
+                  className="h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
+                  style={{ width: `${selectedCandidate.technicalScore}%` }}
+                ></div>
               </div>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader>
-              <CardTitle>Performance Comparison</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ResponsiveContainer width="100%" height={300}>
+              <div className="flex justify-between text-gray-300">
+                <span>Communication</span>
+                <span>{selectedCandidate.communicationScore}%</span>
+              </div>
+              <div className="h-2 bg-gray-800 rounded-full">
+                <div
+                  className="h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
+                  style={{ width: `${selectedCandidate.communicationScore}%` }}
+                ></div>
+              </div>
+              <div className="flex justify-between text-gray-300">
+                <span>Confidence</span>
+                <span>{selectedCandidate.confidenceScore}%</span>
+              </div>
+              <div className="h-2 bg-gray-800 rounded-full">
+                <div
+                  className="h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
+                  style={{ width: `${selectedCandidate.confidenceScore}%` }}
+                ></div>
+              </div>
+              <div className="flex justify-between text-gray-300">
+                <span>Problem Solving</span>
+                <span>{selectedCandidate.problemSolvingScore}%</span>
+              </div>
+              <div className="h-2 bg-gray-800 rounded-full">
+                <div
+                  className="h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
+                  style={{ width: `${selectedCandidate.problemSolvingScore}%` }}
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div className="bg-[#161a26] rounded-lg shadow p-6 border border-gray-800">
+            <h2 className="text-2xl font-bold mb-4 text-white">Performance Comparison</h2>
+            <div className="h-64">
+              <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={performanceData}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="name" />
-                  <YAxis />
-                  <Tooltip />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#333" />
+                  <XAxis dataKey="name" stroke="#999" />
+                  <YAxis stroke="#999" />
+                  <Tooltip contentStyle={{ backgroundColor: "#161a26", border: "1px solid rgba(255, 255, 255, 0.2)" }} />
                   <Legend />
-                  <Line type="monotone" dataKey="John" stroke="#8884d8" />
-                  <Line type="monotone" dataKey="Jane" stroke="#82ca9d" />
+                  <Line type="monotone" dataKey="John" stroke="#a855f7" />
+                  <Line type="monotone" dataKey="Jane" stroke="#ec4899" />
                 </LineChart>
               </ResponsiveContainer>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </div>
-        <Card className="mt-6">
-          <CardHeader>
-            <CardTitle>Detailed Question Review</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <Tabs defaultValue="question1" className="w-full">
-              <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="question1">Question 1</TabsTrigger>
-                <TabsTrigger value="question2">Question 2</TabsTrigger>
-              </TabsList>
-              {selectedCandidate.questions.map((q, index) => (
-                <TabsContent key={index} value={`question${index + 1}`}>
-                  <div className="space-y-4">
-                    <div className="bg-muted p-4 rounded-lg">
-                      <h3 className="font-semibold">Question:</h3>
-                      <p>{q.question}</p>
+
+        {/* Detailed Question Review */}
+        <div className="bg-[#161a26] rounded-lg shadow p-6 mt-6 border border-gray-800">
+          <h2 className="text-2xl font-bold mb-4 text-white">Detailed Question Review</h2>
+          <div className="space-y-4">
+            {selectedCandidate.questions.map((q, index) => (
+              <div key={index} className="border border-gray-800 rounded-lg p-4">
+                <div className="flex justify-between items-center mb-4">
+                  <span className="text-gray-300">Question {index + 1}</span>
+                </div>
+                <div className="space-y-4">
+                  <div className="bg-[#0b0f1c] p-4 rounded-lg">
+                    <h3 className="font-semibold text-purple-400">Question:</h3>
+                    <p className="text-gray-300">{q.question}</p>
+                  </div>
+                  <div className="bg-[#0b0f1c] p-4 rounded-lg">
+                    <h3 className="font-semibold mb-2 text-purple-400">Candidate's Answer:</h3>
+                    <div className="flex items-center space-x-4 mb-2">
+                      <button
+                        className="flex items-center space-x-2 px-3 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:from-pink-500 hover:to-purple-500"
+                        onClick={handleAudioPlayback}
+                      >
+                        {isPlaying ? <FiPause className="h-4 w-4" /> : <FiPlay className="h-4 w-4" />}
+                        <span>Playback</span>
+                      </button>
+                      <input
+                        type="range"
+                        min="0"
+                        max="100"
+                        value={audioProgress}
+                        className="w-full"
+                        disabled
+                      />
                     </div>
-                    <div>
-                      <h3 className="font-semibold mb-2">Candidate's Answer:</h3>
-                      <div className="bg-muted p-4 rounded-lg">
-                        <div className="flex items-center space-x-2 mb-2">
-                          <Button size="sm" onClick={handleAudioPlayback}>
-                            {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
-                          </Button>
-                          <Slider value={[audioProgress]} max={100} step={1} className="w-full" />
+                    <p className="text-gray-300">{q.answer}</p>
+                  </div>
+                  <div className="bg-[#0b0f1c] p-4 rounded-lg">
+                    <h3 className="font-semibold mb-2 text-purple-400">AI Feedback:</h3>
+                    <p className="text-gray-300">{q.feedback}</p>
+                    <div className="mt-2 flex items-center space-x-4">
+                      <div className="flex items-center space-x-2">
+                        <span className="font-semibold text-gray-300">Score:</span>
+                        <div className="h-2 bg-gray-800 rounded-full">
+                          <div
+                            className="h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
+                            style={{ width: `${q.score}%` }}
+                          ></div>
                         </div>
-                        <p>{q.answer}</p>
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-2">AI Feedback:</h3>
-                      <div className="bg-muted p-4 rounded-lg">
-                        <p>{q.feedback}</p>
-                        <div className="mt-2 flex items-center">
-                          <span className="font-semibold mr-2">Score:</span>
-                          <Progress value={q.score} className="w-full" />
-                          <span className="ml-2">{q.score}%</span>
-                        </div>
+                        <span className="text-gray-300">{q.score}%</span>
                       </div>
                     </div>
                   </div>
-                </TabsContent>
-              ))}
-            </Tabs>
-          </CardContent>
-        </Card>
-        <Card className="mt-6">
-          <CardHeader>
-            <CardTitle>Shortlisting Panel</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>Candidate</TableHead>
-                  <TableHead>Overall Score</TableHead>
-                  <TableHead>Technical</TableHead>
-                  <TableHead>Communication</TableHead>
-                  <TableHead>Confidence</TableHead>
-                  <TableHead>Problem Solving</TableHead>
-                  <TableHead>Action</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Shortlisting Panel */}
+        <div className="bg-[#161a26] rounded-lg shadow p-6 mt-6 border border-gray-800">
+          <h2 className="text-2xl font-bold mb-4 text-white">Shortlisting Panel</h2>
+          <div className="overflow-x-auto">
+            <table className="w-full">
+              <thead>
+                <tr className="border-b border-gray-800">
+                  <th className="text-left py-3 px-4 text-gray-300">Candidate</th>
+                  <th className="text-left py-3 px-4 text-gray-300">Overall Score</th>
+                  <th className="text-left py-3 px-4 text-gray-300">Technical</th>
+                  <th className="text-left py-3 px-4 text-gray-300">Communication</th>
+                  <th className="text-left py-3 px-4 text-gray-300">Confidence</th>
+                  <th className="text-left py-3 px-4 text-gray-300">Problem Solving</th>
+                  <th className="text-left py-3 px-4 text-gray-300">Action</th>
+                </tr>
+              </thead>
+              <tbody>
                 {candidates.map((candidate) => (
-                  <TableRow key={candidate.id}>
-                    <TableCell>{candidate.name}</TableCell>
-                    <TableCell>{candidate.overallScore}%</TableCell>
-                    <TableCell>{candidate.technicalScore}%</TableCell>
-                    <TableCell>{candidate.communicationScore}%</TableCell>
-                    <TableCell>{candidate.confidenceScore}%</TableCell>
-                    <TableCell>{candidate.problemSolvingScore}%</TableCell>
-                    <TableCell>
+                  <tr key={candidate.id} className="border-b border-gray-800">
+                    <td className="py-3 px-4 text-white">{candidate.name}</td>
+                    <td className="py-3 px-4 text-white">{candidate.overallScore}%</td>
+                    <td className="py-3 px-4 text-white">{candidate.technicalScore}%</td>
+                    <td className="py-3 px-4 text-white">{candidate.communicationScore}%</td>
+                    <td className="py-3 px-4 text-white">{candidate.confidenceScore}%</td>
+                    <td className="py-3 px-4 text-white">{candidate.problemSolvingScore}%</td>
+                    <td className="py-3 px-4">
                       <div className="flex space-x-2">
-                        <Button size="sm" variant="default">
+                        <button className="px-3 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600">
                           Shortlist
-                        </Button>
-                        <Button size="sm" variant="destructive">
+                        </button>
+                        <button className="px-3 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600">
                           Reject
-                        </Button>
-                        <Button size="sm" variant="outline">
+                        </button>
+                        <button className="px-3 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600">
                           Follow-Up
-                        </Button>
+                        </button>
                       </div>
-                    </TableCell>
-                  </TableRow>
+                    </td>
+                  </tr>
                 ))}
-              </TableBody>
-            </Table>
-          </CardContent>
-        </Card>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </main>
     </div>
-  )
+  );
 }
