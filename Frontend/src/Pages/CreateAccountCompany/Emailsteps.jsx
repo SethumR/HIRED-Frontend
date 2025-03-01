@@ -160,7 +160,7 @@ const EmailStep = ({ email, setEmail, error, handleNext }) => {
         <p className="text-center text-gray-400 text-sm">
           Already have an account?{" "}
           <a
-            href="/signin"
+            href="/signincompany"
             className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 hover:underline"
           >
             Sign In Here
