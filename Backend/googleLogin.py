@@ -38,14 +38,6 @@ logger = logging.getLogger(__name__)
 class TokenModel(BaseModel):
     token: str
 
-async def save_user_to_db(user_data):
-    # Check if user already exists
-    if await collection.find_one({"google_id": user_data["google_id"]}):
-        return
-
-    # Insert user data into MongoDB
-    await collection.insert_one(user_data)
-
 @app.post("/auth/google")
 async def google_auth(data: TokenModel):
     try:
@@ -53,20 +45,50 @@ async def google_auth(data: TokenModel):
         id_info = id_token.verify_oauth2_token(data.token, google_requests.Request(), os.getenv("GOOGLE_CLIENT_ID"))
 
         # Extract user information
+        google_id = id_info["sub"]  # Use the 'sub' as unique Google ID
+        
+        # Check if user already exists in the database
+        existing_user = await collection.find_one({"google_id": google_id})
+        
+        if existing_user:
+            # If user already exists, return a friendly message
+            logger.info(f"User with Google ID {google_id} tried to register again")
+            
+            # Convert ObjectId to string if it exists
+            if "_id" in existing_user:
+                existing_user["_id"] = str(existing_user["_id"])
+                
+            return {
+                "status": "existing_user",
+                "message": "You've already registered with this Google account. Please use a different account or sign in directly.",
+                "user": {
+                    "email": existing_user.get("email", ""),
+                    "name": existing_user.get("name", ""),
+                    "picture": existing_user.get("picture", "")
+                }
+            }
+        
+        # Create new user data
         user_data = {
-            "google_id": id_info["sub"],  # Use the 'sub' as unique Google ID
+            "google_id": google_id,
             "email": id_info["email"],
             "name": id_info.get("name", ""),
             "picture": id_info.get("picture", ""),
+            "auth_provider": "google"
         }
 
-        # Save user data to MongoDB
-        await save_user_to_db(user_data)
+        # Insert new user into the database
+        result = await collection.insert_one(user_data)
+        logger.info(f"New Google user registered with ID: {result.inserted_id}")
+        
+        # Add the MongoDB ID to the user data
+        user_data["_id"] = str(result.inserted_id)
 
-        # Convert ObjectId to string
-        user_data["_id"] = str(user_data["_id"]) if "_id" in user_data else None
-
-        return {"message": "Login successful", "user": user_data}
+        return {
+            "status": "success",
+            "message": "Login successful. Welcome to Hired!",
+            "user": user_data
+        }
 
     except Exception as e:
         logger.error(f"Error during Google authentication: {str(e)}")
