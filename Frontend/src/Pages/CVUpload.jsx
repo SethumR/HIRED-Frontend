@@ -158,16 +158,16 @@ export default function CVUpload() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 flex flex-col">
+    <div className="min-h-screen bg-gradient-to-b from-slate-800 to-slate-900 flex flex-col">
       <main className="flex-1">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           {/* Hero Section */}
           <div className="text-center mb-16">
-            <h1 className="text-4xl font-bold mb-5 mt-20 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
+            <h1 className="text-4xl font-bold mb-5 mt-20 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-teal-400">
               AI-Powered Introduction Generator
             </h1>
-            <p className="text-gray-600 text-lg max-w-3xl mx-auto -mb-5">
-            Transform your resume into a compelling self-introduction in seconds
+            <p className="text-slate-300 text-lg max-w-3xl mx-auto -mb-5">
+              Transform your resume into a compelling self-introduction in seconds
             </p>
           </div>
 
@@ -180,13 +180,13 @@ export default function CVUpload() {
             ].map((step, index) => (
               <div key={step.text} className="flex flex-col items-center">
                 <div className="flex items-center">
-                  <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center shadow-md">
-                    <step.icon className="w-6 h-6 text-blue-600" />
+                  <div className="w-12 h-12 rounded-full bg-slate-700 flex items-center justify-center shadow-md border border-slate-600">
+                    <step.icon className="w-6 h-6 text-teal-400" />
                   </div>
-                  <span className="ml-3 font-medium text-gray-800">{step.text}</span>
-                  {index < 2 && <ArrowRight className="w-5 h-5 text-gray-400 mx-4 hidden md:block" />}
+                  <span className="ml-3 font-medium text-slate-200">{step.text}</span>
+                  {index < 2 && <ArrowRight className="w-5 h-5 text-slate-400 mx-4 hidden md:block" />}
                 </div>
-                <p className="text-sm text-gray-500 mt-2">{step.description}</p>
+                <p className="text-sm text-slate-400 mt-2">{step.description}</p>
               </div>
             ))}
           </div>
@@ -197,8 +197,8 @@ export default function CVUpload() {
             <div
               className={`p-8 border-2 rounded-xl transition-all duration-300 ${
                 uploadStatus === "success"
-                  ? "border-green-400 bg-green-50"
-                  : "border-dashed border-gray-300 hover:border-blue-400 bg-white"
+                  ? "border-teal-400 bg-slate-700/50"
+                  : "border-dashed border-slate-600 hover:border-teal-400 bg-slate-800/50"
               }`}
               onDragOver={handleDragOver}
               onDrop={handleDrop}
@@ -206,11 +206,11 @@ export default function CVUpload() {
               <div className="text-center">
                 {uploadStatus === "success" ? (
                   <div className="animate-fade-in">
-                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <FileText className="w-8 h-8 text-green-600" />
+                    <div className="w-16 h-16 bg-slate-700 rounded-full flex items-center justify-center mx-auto mb-4 border border-teal-400">
+                      <FileText className="w-8 h-8 text-teal-400" />
                     </div>
-                    <h3 className="text-xl font-semibold mb-2 text-green-700">Resume Uploaded Successfully!</h3>
-                    <p className="text-gray-600 mb-4">
+                    <h3 className="text-xl font-semibold mb-2 text-teal-300">Resume Uploaded Successfully!</h3>
+                    <p className="text-slate-300 mb-4">
                       {cvFile?.name} ({(cvFile?.size / 1024).toFixed(1)} KB)
                     </p>
                     <button
@@ -219,7 +219,7 @@ export default function CVUpload() {
                         setCvText("")
                         setUploadStatus("idle")
                       }}
-                      className="px-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors inline-flex items-center gap-2"
+                      className="px-4 py-2 bg-slate-700 border border-slate-600 rounded-lg text-slate-300 hover:bg-slate-600 transition-colors inline-flex items-center gap-2"
                     >
                       <RefreshCw className="w-4 h-4" />
                       Upload Different File
@@ -227,15 +227,15 @@ export default function CVUpload() {
                   </div>
                 ) : uploadStatus === "uploading" ? (
                   <div>
-                    <Loader2 className="w-16 h-16 text-blue-600 mx-auto mb-4 animate-spin" />
-                    <h3 className="text-xl font-semibold mb-2">Processing Your Resume...</h3>
-                    <p className="text-gray-600 mb-4">This will only take a moment</p>
+                    <Loader2 className="w-16 h-16 text-teal-400 mx-auto mb-4 animate-spin" />
+                    <h3 className="text-xl font-semibold mb-2 text-slate-200">Processing Your Resume...</h3>
+                    <p className="text-slate-400 mb-4">This will only take a moment</p>
                   </div>
                 ) : (
                   <>
-                    <Upload className="w-16 h-16 text-blue-600 mx-auto mb-4" />
-                    <h3 className="text-xl font-semibold mb-2">Upload Your Resume</h3>
-                    <p className="text-gray-600 mb-6">Drag & drop your resume file here, or click to browse</p>
+                    <Upload className="w-16 h-16 text-teal-400 mx-auto mb-4" />
+                    <h3 className="text-xl font-semibold mb-2 text-slate-200">Upload Your Resume</h3>
+                    <p className="text-slate-400 mb-6">Drag & drop your resume file here, or click to browse</p>
                     <input
                       type="file"
                       accept=".pdf,.docx,.txt"
@@ -245,75 +245,75 @@ export default function CVUpload() {
                     />
                     <label
                       htmlFor="resume-upload"
-                      className="cursor-pointer px-6 py-3 bg-blue-600 text-white rounded-lg inline-block shadow-md hover:bg-blue-700 transition-colors"
+                      className="cursor-pointer px-6 py-3 bg-teal-500 text-white rounded-lg inline-block shadow-md hover:bg-teal-600 transition-colors"
                     >
                       Browse Files
                     </label>
-                    <p className="text-sm text-gray-500 mt-6">Supported formats: PDF, DOCX, TXT (Max 10MB)</p>
+                    <p className="text-sm text-slate-500 mt-6">Supported formats: PDF, DOCX, TXT (Max 10MB)</p>
                   </>
                 )}
               </div>
             </div>
 
             {/* Preview Area */}
-            <div className="p-8 bg-white rounded-xl shadow-sm border border-gray-100">
-              <h3 className="text-xl font-semibold mb-4 flex items-center">
-                <span className="bg-blue-100 w-8 h-8 rounded-full flex items-center justify-center mr-2">
-                  <Bot className="w-4 h-4 text-blue-600" />
+            <div className="p-8 bg-slate-800 rounded-xl shadow-lg border border-slate-700">
+              <h3 className="text-xl font-semibold mb-4 flex items-center text-slate-200">
+                <span className="bg-slate-700 w-8 h-8 rounded-full flex items-center justify-center mr-2 border border-slate-600">
+                  <Bot className="w-4 h-4 text-teal-400" />
                 </span>
                 Your AI-Generated Script
               </h3>
 
               {error && (
-                <div className="p-4 bg-red-50 border border-red-200 rounded-lg mb-4 text-red-700 text-sm">{error}</div>
+                <div className="p-4 bg-red-900/30 border border-red-700 rounded-lg mb-4 text-red-300 text-sm">{error}</div>
               )}
 
               {loading ? (
                 <div className="flex flex-col items-center justify-center py-12">
-                  <Loader2 className="w-10 h-10 animate-spin text-blue-600 mb-4" />
-                  <p className="text-gray-600">Generating your professional introduction...</p>
+                  <Loader2 className="w-10 h-10 animate-spin text-teal-400 mb-4" />
+                  <p className="text-slate-400">Generating your professional introduction...</p>
                 </div>
               ) : script ? (
                 <div className="space-y-6 animate-fade-in">
-                  <div className="p-4 bg-blue-50 rounded-lg">
-                    <h4 className="font-semibold text-gray-800 mb-2 flex items-center">
-                      <span className="bg-blue-100 w-6 h-6 rounded-full flex items-center justify-center mr-2">
-                        <span className="text-blue-600 text-xs">1</span>
+                  <div className="p-4 bg-slate-700/50 rounded-lg border border-slate-600">
+                    <h4 className="font-semibold text-slate-200 mb-2 flex items-center">
+                      <span className="bg-slate-600 w-6 h-6 rounded-full flex items-center justify-center mr-2">
+                        <span className="text-teal-300 text-xs">1</span>
                       </span>
                       Personalized Introduction
                     </h4>
-                    <p className="text-gray-700">{script.personalized_intro}</p>
+                    <p className="text-slate-300">{script.personalized_intro}</p>
                   </div>
 
-                  <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-gray-800 mb-2 flex items-center">
-                      <span className="bg-gray-200 w-6 h-6 rounded-full flex items-center justify-center mr-2">
-                        <span className="text-gray-700 text-xs">2</span>
+                  <div className="p-4 bg-slate-700/50 rounded-lg border border-slate-600">
+                    <h4 className="font-semibold text-slate-200 mb-2 flex items-center">
+                      <span className="bg-slate-600 w-6 h-6 rounded-full flex items-center justify-center mr-2">
+                        <span className="text-teal-300 text-xs">2</span>
                       </span>
                       Normal Introduction
                     </h4>
-                    <p className="text-gray-700">{script.normal_intro}</p>
+                    <p className="text-slate-300">{script.normal_intro}</p>
                   </div>
 
-                  <div className="p-4 bg-indigo-50 rounded-lg">
-                    <h4 className="font-semibold text-gray-800 mb-2 flex items-center">
-                      <span className="bg-indigo-100 w-6 h-6 rounded-full flex items-center justify-center mr-2">
-                        <span className="text-indigo-600 text-xs">3</span>
+                  <div className="p-4 bg-slate-700/50 rounded-lg border border-slate-600">
+                    <h4 className="font-semibold text-slate-200 mb-2 flex items-center">
+                      <span className="bg-slate-600 w-6 h-6 rounded-full flex items-center justify-center mr-2">
+                        <span className="text-teal-300 text-xs">3</span>
                       </span>
                       Overall Feedback
                     </h4>
-                    <p className="text-gray-700">{script.overall_feedback}</p>
+                    <p className="text-slate-300">{script.overall_feedback}</p>
                   </div>
                 </div>
               ) : (
-                <div className="py-4 text-center text-gray-500">
-                  <p className="mb-4">Your professional introduction will appear here after processing .</p>
-                  <div className="w-full h-32 bg-gray-100 rounded-lg animate-pulse"></div>
+                <div className="py-4 text-center text-slate-400">
+                  <p className="mb-4">Your professional introduction will appear here after processing.</p>
+                  <div className="w-full h-32 bg-slate-700 rounded-lg animate-pulse"></div>
                 </div>
               )}
 
               <div className="flex justify-between items-center mt-8">
-                <span className="text-gray-500 text-sm">
+                <span className="text-slate-400 text-sm">
                   {script ? `${script.personalized_intro.split(" ").length} words` : "0 words"}
                 </span>
                 <div className="space-x-3">
@@ -321,10 +321,10 @@ export default function CVUpload() {
                     <button 
                       onClick={handleDownload}
                       disabled={downloading}
-                      className={`px-4 py-2 border border-gray-300 rounded-lg transition-colors inline-flex items-center gap-2 ${
+                      className={`px-4 py-2 border border-slate-600 rounded-lg transition-colors inline-flex items-center gap-2 ${
                         downloading 
-                          ? 'bg-gray-100 cursor-not-allowed' 
-                          : 'hover:bg-gray-50 hover:border-gray-400'
+                          ? 'bg-slate-700 cursor-not-allowed text-slate-400' 
+                          : 'hover:bg-slate-700 hover:border-slate-500 text-slate-300'
                       }`}
                     >
                       {downloading ? (
@@ -341,7 +341,7 @@ export default function CVUpload() {
                     </button>
                   )}
                   <button
-                    className={`px-6 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition-colors inline-flex items-center gap-2 ${
+                    className={`px-6 py-2 bg-teal-500 text-white rounded-lg shadow-md hover:bg-teal-600 transition-colors inline-flex items-center gap-2 ${
                       !cvText && "opacity-50 cursor-not-allowed"
                     }`}
                     onClick={generateScript}
@@ -370,9 +370,9 @@ export default function CVUpload() {
       </main>
 
       {downloading && (
-        <div className="fixed bottom-4 right-4 bg-white shadow-lg rounded-lg p-4 flex items-center gap-3 border border-gray-200 animate-fade-in">
-          <Loader2 className="w-5 h-5 text-blue-600 animate-spin" />
-          <span className="text-gray-700">Preparing your PDF...</span>
+        <div className="fixed bottom-4 right-4 bg-slate-800 shadow-lg rounded-lg p-4 flex items-center gap-3 border border-slate-700 animate-fade-in">
+          <Loader2 className="w-5 h-5 text-teal-400 animate-spin" />
+          <span className="text-slate-300">Preparing your PDF...</span>
         </div>
       )}
 
@@ -403,39 +403,39 @@ function TipsSection() {
       icon: Sparkles,
       tip: "Ensure your resume is up-to-date",
       description: "Include your most recent experiences and skills for the best results",
-      color: "from-blue-500/10 to-blue-600/10",
-      iconColor: "text-blue-600",
-      hoverColor: "hover:from-blue-500/20 hover:to-blue-600/20",
+      color: "from-teal-500/10 to-cyan-600/10",
+      iconColor: "text-teal-400",
+      hoverColor: "hover:from-teal-500/20 hover:to-cyan-600/20",
     },
     {
       icon: Target,
       tip: "Include relevant skills and experiences",
       description: "Focus on skills and experiences that are relevant to your target position",
-      color: "from-purple-500/10 to-purple-600/10",
-      iconColor: "text-purple-600",
-      hoverColor: "hover:from-purple-500/20 hover:to-purple-600/20",
+      color: "from-purple-500/10 to-indigo-600/10",
+      iconColor: "text-purple-400",
+      hoverColor: "hover:from-purple-500/20 hover:to-indigo-600/20",
     },
     {
       icon: Trophy,
       tip: "Highlight key achievements",
       description: "Quantify your achievements with numbers and metrics when possible",
-      color: "from-emerald-500/10 to-emerald-600/10",
-      iconColor: "text-emerald-600",
-      hoverColor: "hover:from-emerald-500/20 hover:to-emerald-600/20",
+      color: "from-emerald-500/10 to-teal-600/10",
+      iconColor: "text-emerald-400",
+      hoverColor: "hover:from-emerald-500/20 hover:to-teal-600/20",
     },
   ];
 
   return (
-    <div className="mt-12 p-8 bg-white rounded-2xl shadow-xl relative overflow-hidden">
+    <div className="mt-12 p-8 bg-slate-800 rounded-2xl shadow-xl relative overflow-hidden border border-slate-700">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 opacity-50" />
-      <div className="absolute inset-0 bg-[linear-gradient(30deg,_transparent_40%,_#ffffff_70%)]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-slate-700/50 to-slate-800/50 opacity-50" />
+      <div className="absolute inset-0 bg-[linear-gradient(30deg,_transparent_40%,_#1e293b_70%)]" />
 
       {/* Content */}
       <div className="relative">
-        <h3 className="font-semibold text-2xl mb-8 flex items-center">
-          <span className="bg-gradient-to-r from-blue-100 to-indigo-100 w-10 h-10 rounded-xl flex items-center justify-center mr-3 shadow-inner">
-            <Sparkles className="w-5 h-5 text-blue-600" />
+        <h3 className="font-semibold text-2xl mb-8 flex items-center text-slate-200">
+          <span className="bg-gradient-to-r from-slate-700 to-slate-600 w-10 h-10 rounded-xl flex items-center justify-center mr-3 shadow-inner border border-slate-600">
+            <Sparkles className="w-5 h-5 text-teal-400" />
           </span>
           Tips for Better Results
         </h3>
@@ -448,7 +448,7 @@ function TipsSection() {
                 className={`
                 h-full p-6 rounded-xl transition-all duration-300
                 bg-gradient-to-br ${item.color} ${item.hoverColor}
-                border border-white/50 backdrop-blur-sm
+                border border-slate-700 backdrop-blur-sm
                 hover:shadow-lg hover:scale-[1.02]
               `}
               >
@@ -457,7 +457,7 @@ function TipsSection() {
                   <div
                     className={`
                     w-12 h-12 rounded-xl
-                    bg-white shadow-sm
+                    bg-slate-700 shadow-sm border border-slate-600
                     flex items-center justify-center
                     group-hover:scale-110 transition-transform duration-300
                   `}
@@ -467,11 +467,11 @@ function TipsSection() {
                 </div>
 
                 {/* Content */}
-                <h4 className="font-semibold text-gray-800 text-lg mb-2 group-hover:text-gray-900">{item.tip}</h4>
-                <p className="text-gray-600 group-hover:text-gray-700">{item.description}</p>
+                <h4 className="font-semibold text-slate-200 text-lg mb-2 group-hover:text-slate-100">{item.tip}</h4>
+                <p className="text-slate-400 group-hover:text-slate-300">{item.description}</p>
 
                 {/* Learn More Link */}
-                <div className="mt-4 flex items-center text-sm font-medium text-gray-600 group-hover:text-gray-800">
+                <div className="mt-4 flex items-center text-sm font-medium text-slate-400 group-hover:text-slate-200">
                   <span className="mr-2">Learn more</span>
                   <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -482,7 +482,7 @@ function TipsSection() {
                 className={`
                 absolute -top-2 -right-2
                 w-8 h-8 rounded-full
-                bg-white shadow-md
+                bg-slate-700 shadow-md border border-slate-600
                 flex items-center justify-center
                 text-sm font-semibold ${item.iconColor}
                 group-hover:scale-110 transition-transform duration-300
