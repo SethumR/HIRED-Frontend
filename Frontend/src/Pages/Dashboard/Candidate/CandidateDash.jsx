@@ -142,24 +142,24 @@ const Dashboard = () => {
               </div>
             </section>
 
-            {/* Action Buttons */}
-            <button
-              onClick={() => navigate("/mockinterview")}
-              className="w-full bg-gradient-to-r from-purple-600 to-pink-500 hover:from-pink-500 hover:to-purple-600 text-white py-3 px-4 rounded-xl transition duration-300 flex items-center justify-center gap-4 font-semibold"
-            >
-              <HiOutlineMicrophone className="h-5 w-5" /> 
-              Start Mock Interview
-            </button>
+            /* Action Buttons */{'}'}
+                  <button
+                    onClick={() => navigate("/interview")}
+                    className="w-full bg-gradient-to-r from-purple-600 to-pink-500 hover:from-pink-500 hover:to-purple-600 text-white py-3 px-4 rounded-xl transition duration-300 flex items-center justify-center gap-4 font-semibold"
+                  >
+                    <HiOutlineMicrophone className="h-5 w-5" /> 
+                    Start Mock Interview
+                  </button>
 
-            <button
-              onClick={() => navigate("/uploadcv")}
-              className="w-full bg-gradient-to-r from-purple-600 to-pink-500 hover:from-pink-500 hover:to-purple-600 text-white py-3 px-4 rounded-xl transition duration-300 flex items-center justify-center gap-4 font-semibold"
-            >
-              <HiOutlineMicrophone className="h-5 w-5" /> 
-              Generate the Scripts
-            </button>
+                  <button
+                    onClick={() => navigate("/uploadcv")}
+                    className="w-full bg-gradient-to-r from-purple-600 to-pink-500 hover:from-pink-500 hover:to-purple-600 text-white py-3 px-4 rounded-xl transition duration-300 flex items-center justify-center gap-4 font-semibold"
+                  >
+                    <HiOutlineMicrophone className="h-5 w-5" /> 
+                    Generate the Scripts
+                  </button>
 
-            {/* Recommended */}
+                  {/* Recommended */}
             <section className="bg-[#0d1221] p-6 rounded-lg border border-gray-800 shadow-cyan-500/20 shadow-lg">
               <div className="mb-4 flex items-center justify-between">
                 <h3 className="text-xl font-semibold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">Recommended</h3>
