@@ -95,14 +95,14 @@ const actionsData = [
   {
     title: "Create New Interview",
     description: "Set up a new candidate assessment",
-    link: "/JobRolesSetupPage",
+    link: "/jobrolesetuppage",
     icon: <PlusCircle className="h-5 w-5 text-white" />,
     buttonText: "Start"
   },
   {
     title: "View Reports",
     description: "Analyze candidate performance",
-    link: "/ReportsPerformancePage",
+    link: "/reportperformancepage",
     icon: <FileText className="h-5 w-5 text-white" />,
     buttonText: "Open"
   },
@@ -165,7 +165,7 @@ export default function DashboardPage() {
                   {
                     title: "Profile",
                     icon: <Users className="h-5 w-5 text-purple-400" />,
-                    link: "/profile"
+                    link: "/CompanyProfilePage"
                   }].map((item, index) => (
                     <Link
                       key={index}
