@@ -17,6 +17,10 @@ import DashboardPage from './Pages/Dashboard/Company/CompanyDash';
 import SignupC from './Pages/CreateAccountCompany/SignupForm';
 import SignInCompany from './Pages/CreateAccountCompany/Signin';
 import Interview from './Pages/Dashboard/Candidate/InterviewAI';
+import JobRolesSetupPage from './Pages/Dashboard/Company/Jobrole';
+import ReportsPerformancePage from'./Pages/Dashboard/Company/ReportPerformance';
+import CandidatePerformancePage from'./Pages/Dashboard/Company/CandidatePerformance';
+import CompanyProfilePage from'./Pages/Dashboard/Company/EditProfile';
 
 
 
@@ -40,7 +44,10 @@ const App = () => {
           <Route path="/signupcompany" element={<SignupC/>}/>
           <Route path="/signincompany" element={<SignInCompany/>}/>
           <Route path="/interview" element={<Interview/>}/>
-          
+          <Route path="/jobrolesetuppage" element={<JobRolesSetupPage/>}/>
+          <Route path="/reportperformancepage" element={<ReportsPerformancePage/>}/>
+          <Route path="/candidateperformancepage" element={<CandidatePerformancePage/>}/>
+          <Route path="/companyprofilepage" element={<CompanyProfilePage/>}/>
           </Routes>
 
         <Footer />

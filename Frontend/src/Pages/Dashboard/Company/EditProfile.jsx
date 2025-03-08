@@ -110,7 +110,7 @@ export default function CompanyProfilePage() {
       <main className="flex-1 container pt-24 pb-12 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center">
-            <Link to="/DashboardPage" className="flex items-center mr-4 bg-[#161a26] text-purple-400 p-2 rounded-lg hover:text-purple-300 border border-gray-800 transition-colors">
+            <Link to="/companydashboard" className="flex items-center mr-4 bg-[#161a26] text-purple-400 p-2 rounded-lg hover:text-purple-300 border border-gray-800 transition-colors">
               <FaArrowLeft className="h-5 w-5" />
             </Link>
             <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r text-white">Company Profile</h1>
