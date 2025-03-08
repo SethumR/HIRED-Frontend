@@ -17,6 +17,9 @@ import DashboardPage from './Pages/Dashboard/Company/CompanyDash';
 import SignupC from './Pages/CreateAccountCompany/SignupForm';
 import SignInCompany from './Pages/CreateAccountCompany/Signin';
 import Interview from './Pages/Dashboard/Candidate/InterviewAI';
+import MockInterview from './Pages/Dashboard/Candidate/Startmock';
+
+
 
 
 
@@ -40,6 +43,8 @@ const App = () => {
           <Route path="/signupcompany" element={<SignupC/>}/>
           <Route path="/signincompany" element={<SignInCompany/>}/>
           <Route path="/interview" element={<Interview/>}/>
+          <Route path="/mockinterview" element={<MockInterview/>}/>
+          
           
           </Routes>
 
